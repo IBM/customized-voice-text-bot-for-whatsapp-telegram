@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>AI</title>
+
+    <link rel="stylesheet" href="./stylesheets/styles.css">
+    <link rel="stylesheet" href="./stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Project</h1>
+        <p>Repository </p>
+
+        <p class="view"><a href="https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram">View the Project on GitHub <small>IBM/customized-voice-text-bot-for-whatsapp-telegram</small></a></p><br>
+
+      </header>
+      <section>
+        <h1>
+<a id="home" class="anchor" href="../index.html" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Customized Voice and Text Chatbot fully integrated to database (Cloudant and COS) using Watson Services (STT, WA, TTS) deployed to IBM Cloud using Code Engine.</a></h1>
+<h2>
+<a id="flask" class="anchor" href="#flask" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Flask</strong>
+</h2>
+<p><a href="https://flask.palletsprojects.com/en/2.0.x/">Flask</a> is a popular web microframework that can be used for creating web applications. The other popular web framework for Python is Django, but it has many more dependencies than Flask. Flask is pretty simple to work with, and it allows for many design and customization choices from the developer, so it is good for quickly building web apps, as we have done with this chat bot. Watson Assistant can currently only communicate using text messages (in other words, strings), so in order to enable the use of audio messages with the chat bot, an application is needed to process audio messages. Thus, this Flask application is the backbone of the chatbot. Messages are forwarded through Twilio to the Flask application, which then processes each message differently, depending on whether the message is audio or text. The application will also eventually access a credit scoring machine learning model, so having a central application is good for coordinating all of the different services that go into this chat bot.</p>
+<p>In <code>src/whatsapp.py</code>, Flask is used to create specific this <a href="https://restfulapi.net/resource-naming/">RESTful</a> <a href="https://rapidapi.com/blog/api-glossary/endpoint/">API endpoint</a>:</p>
+<ul>
+<li>
+<code>POST /chatbot-message</code>
+<ul>
+<li>description: sending a message to the chatbot</li>
+<li>returns: <a href="https://www.twilio.com/docs/libraries/reference/twilio-python/6.63.0/docs/source/_rst/twilio.twiml.html?highlight=messagingresponse#twilio.twiml.messaging_response.MessagingResponse">A Twilio MessagingResponse</a>
+<ul>
+<li>this will have a textual body (text message) or an audio file attached (audio message)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/IBM">IBM</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
