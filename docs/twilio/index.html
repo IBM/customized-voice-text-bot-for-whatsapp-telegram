@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Customized voice-text bot for WhatsApp and Telegram</title>
+
+    <link rel="stylesheet" href="../src/stylesheets/styles.css">
+    <link rel="stylesheet" href="../src/stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>IBM Research</h1>
+        <p>Repository designed for Tech for Justice Challenge #3787 - Empowering minority communities by enhancing financially local practices with AI</p>
+
+        <p class="view"><a href="https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram">View the Project on GitHub <small>IBM/customized-voice-text-bot-for-whatsapp-telegram</small></a></p><br>
+        <h3>Learn more about</h3>
+        <h4>
+          <a href="../runninglocally/index.html"> Running locally</a><br>
+          <a href="../deployment/index.html"> Deploying to IBM Cloud</a><br>
+        </h4>
+        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
+        <a href="./index.html"> Setup Twilio</a><br>
+        <a href="../watsonservices/index.html"> Setup Watson Services</a><br>
+        <a href="../datastorage/index.html"> Setup Data Storage</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-customIntro"> Customizing Text-to-Speech</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-customization"> Customizing Speech-to-Text</a><br>
+        <p></p><br>
+      </header>
+      <section>
+        <h1>
+          <a id="title-page" class="anchor" href="../index.html" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Customized Voice and Text Chatbot fully integrated to database (Cloudant and COS) using Watson Services (STT, WA, TTS) deployed to IBM Cloud using Code Engine</a>
+        </h1>
+        <h2>
+          <a id="twilio-sandbox" class="anchor" href="#twilio-sandbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Twilio Sandbox</strong>
+        </h2>
+        <p><a href="https://www.twilio.com/docs/whatsapp/sandbox" target="_blank">Twilio Sandbox</a> is a prototyping tool that Twilio has provided for testing WhatsApp integrated applications. Here is how it works.</p>
+        <p>There is a single Twilio phone number for the sandbox: +1-415-523-8886. All Sandbox users share this same number, and then there is a specific "join..." message for each individual sandbox. Through this sandbox, Twilio can send <a href="https://www.twilio.com/docs/whatsapp/sandbox#sandbox-templates" target="_blank">templated messages</a> to WhatsApp users, or reply to incoming messages: a WhatsApp user first sends this "join..." message to the Twilio sandbox phone number on WhatsApp to join a specific sandbox, and after that the user can send more messages. Twilio then forwards the incoming messages to an application through a <a href="https://www.twilio.com/docs/glossary/what-is-a-webhook">webhook</a>.</p>
+        <h3>Steps for creating a Enabled Whatsapp Twilio account</h3>
+        <ul>
+          <li>Access the <a href="https://www.twilio.com/try-twilio" target="_blank">Twilio website</a> and create an account by providing the requested information, as the following image shows:</li>
+            <img src="../src/images/twilio_register_page.png"><br><br>
+          <li>Register a phone number into your created account, to start the free trial.</li>
+          <img src="../src/images/twilio_start_trial.png"><br><br>
+          <li>Then, set the following information for your account and click on Get Started:</li>
+          <p style="font-size:12px;"> Which Twilio product are you here to use? <b>WhatsApp</b><br>
+            What do you plan to build with Twilio? <b>IVR & Bots</b> <br>
+            How do you want to build with Twilio? <b>With code</b><br>
+            What is your preferred coding language? <b>Python</b><Br>
+            Would you like Twilio to host your code? <b>No</b>
+            </p>
+          <img src="../src/images/twilio_account_setup.png">
+          <li>And for last, activate your sandbox to enable all resources from your account.</li>
+          <img src="../src/images/twilio_activate_sandbox.png">
+        </ul>
+        <p>Done! Now you are able to use your Twilio Account for testing the bot.</p>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://research.ibm.com/">IBM Research</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="../src/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

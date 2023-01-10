@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Customized voice-text bot for WhatsApp and Telegram</title>
+
+    <link rel="stylesheet" href="../src/stylesheets/styles.css">
+    <link rel="stylesheet" href="../src/stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>IBM Research</h1>
+        <p>Repository designed for Tech for Justice Challenge #3787 - Empowering minority communities by enhancing financially local practices with AI</p>
+
+        <p class="view"><a href="https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram">View the Project on GitHub <small>IBM/customized-voice-text-bot-for-whatsapp-telegram</small></a></p><br>
+        <h3>Learn more about</h3>
+        <h4>
+          <a href="../runninglocally/index.html"> Running locally</a><br>
+          <a href="../deployment/index.html"> Deploying to IBM Cloud</a><br>
+        </h4>
+        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
+        <a href="../twilio/index.html"> Setup Twilio</a><br>
+        <a href="./index.html"> Setup Watson Services</a><br>
+        <a href="../datastorage/index.html"> Setup Data Storage</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-customIntro"> Customizing Text-to-Speech</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-customization"> Customizing Speech-to-Text</a><br>
+        <p></p><br>
+      </header>
+      <section>
+        <h1>
+          <a id="title-page" class="anchor" href="../index.html" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Customized Voice and Text Chatbot fully integrated to database (Cloudant and COS) using Watson Services (STT, WA, TTS) deployed to IBM Cloud using Code Engine</a>
+        </h1>
+
+        <h2>
+        <a id="watson-Services" class="anchor" href="#watson-Services" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Watson Services</strong>
+        </h2>
+
+        <p>As shown in the application architecture below, we built the app based on IBM technologies, such as Watson Assistant, Object Storage, and Code Engine. The AI components of the application, contained in the lilac box, were developed with IBM Watson Services: Watson Assistant, Watson Speech-to-Text, and Watson Text-to-Speech, part of the IBM technologies.</p>
+
+        <img src="../src/images/architecture_ghpages.png">
+
+        <p>The Watson Services are valuable tools for enhancing the effectiveness of conversational user interfaces. <a href="https://www.researchgate.net/publication/366158098_Today_we_talk_to_the_machine_-Unveiling_data_for_providing_micro-credit_loans_using_conversational_systems" target="_blank">Based on research</a>, we can affirm that Watson STT and TTS catalyze user engagement and make the chatbot more efficacious in talking, informing, and collecting data.</p>
+
+        <p>On this page, you will find more information about Watson Services and how to obtain their API keys, which are necessary information to proceed to test and deploy the app.</p>
+
+        <h3><a id="watson-assistant"></a>Watson Assistant</h3>
+
+        <p>Watson Assistant (or WA) is the IBM Cloud service that actually implements the chatbot technology. The <a href="https://cloud.ibm.com/docs/assistant">documentation</a> has lots of helpful tips for working with WA. As seen in the next image image, talking to a chatbot can be thought of as interacting with a <strong>dialog tree</strong>, in which <strong>different nodes represent different stages in a conversation</strong>. For example, if you said "hi" to a friend, that might be the start node in your conversation, which would then flow into a catching-up node as you ask your friend about their day.</p>
+
+        <img src="../src/images/watson_assistant_tree.png" alt="Image showing dialog tree on Watson Assistant."><br><br>
+
+        <p>When you create your own Watson Assistant, you would see that it works by adding <strong>Skills</strong>. You then associate a given skill with your assistant. There are three types of skills available at this time of writing: Action, Dialog, and Search. The chatbot used in this challenge is a <strong>Dialog Skill</strong>. To start working with the chatbot, download the JSON file at <code>skills_assistant/OpenSource-Release-dialog.json</code>, and navigate to the Skill dashboard as shown in this picture:</p>
+
+        <img src="../src/images/skill_dashboard.png"><br><br>
+        <p>After that, choose "Create Skill", and there should be a button on the following page to upload a skill - upload the JSON file there.</p>
+
+        <h4>Obtaining WA environment variables</h4>
+        <p>Below, we listed the environment variables (env vars) related to IBM Watson STT on our source code:</p>
+
+        <ol>
+          <li>WA_API_KEY</li>
+          <li>WA_SERVICE_URL</li>
+          <li>WA_ID</li>
+        </ol>
+      
+        <p>These env vars are necessary for using the WA API v2. You can find more information about WA API <a href="https://cloud.ibm.com/apidocs/assistant/assistant-v2" target="_blank">here</a>.</p>
+
+        <ol>
+          <li>Obtaining WA API key</li>
+          <p>After you create an instance of <a target="_blank" href="https://cloud.ibm.com/catalog/services/watson-assistant">WA</a> on IBM Cloud, open the <a href="https://cloud.ibm.com/resources" target="_blank"><strong>resource list</strong></a>, then go to the WA instance you created and click on the instance title. The service page will open, then click on <strong>manage</strong> and copy the API key.</p>
+          <img src="../src/images/wa_api_key.png"><br><br>
+
+          <li>Obtaining WA service URL</li>
+          <p>The WA service URL is below the API key on WA service page at IBM Cloud (see picture above).</p>
+
+          <li>Obtaining WA ID</li>
+          <p>The WA ID is the bot ID that Watson Assistant API will provide interaction. On WA classic experience, the ID of an assistant can be found on the assistant configuration. The assistant configuration is inside the service page, reachable on the resource list at IBM Cloud.<br>For more information about Watson Assistant, plese refere to this <a target="_blank" href="https://www.youtube.com/watch?v=6sXwKDj6Sp4">content</a>.</p>
+        </ol>
+
+        <h3><a id="Speech-to-Text"></a>Watson Speech-to-Text</h3>
+        <p>The IBM Watson Speech to Text service provides speech transcription. The service leverages machine learning to combine knowledge of grammar, language structure, and the composition of audio and voice signals to accurately transcribe the human voice (<a href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-about#about" target="_blank">STT Documentation</a>).</p>
+
+        <h4>Obtaining STT environment variables</h4>
+        <p>Below, we listed the environment variables (env vars) related to IBM Watson STT on our source code:</p>
+
+        <ol>
+          <li>STT_API_KEY</li>
+          <li>STT_SERVICE_URL</li>
+          <li>STT_MODEL</li>
+          <!--<li>TTS_API_KEY (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
+          <li>TTS_DEFAULT_VOICE (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
+          <li>TTS_SERVICE_URL(refer to <a href="./watson_services.html"> Watson Services page</a>)</li>-->
+        </ol>
+        <p>These env vars are necessary for using the STT API. You can find more information about STT API <a href="https://cloud.ibm.com/apidocs/speech-to-text" target="_blank">here</a>.</p>
+        <p></p>
+        
+        <ol>
+          <li>Obtaining API Key</li>
+          <p>After you create an instance of <a target="_blank" href="https://cloud.ibm.com/catalog/services/speech-to-text">STT</a> on IBM Cloud, open the <a href="https://cloud.ibm.com/resources" target="_blank"><strong>resource list</strong></a>, then go to the STT instance you created and click on the instance title. The service page will open, then click on <strong>manage</strong> and copy the API key.</p>
+          <img src="../src/images/stt_api_key.png"><br><br>
+
+          <li>Obtaining STT service URL</li>
+          <p>The STT service URL is below the API key on STT service page at IBM Cloud (see picture above).</p>
+        
+          <li>STT model name</li>
+          <p>The STT model should be compatible to the chatbot users main language. As we are using WhatsApp and Telegram, it is appropriate to use Multimedia models for better results. To see a list of all STT supported languages and their models names please refer to <a target="_blank" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-models-ng">here</a>.<br>
+          Example of <code>STT_MODEL</code> value: <code>en-US_Multimedia</code>
+          </p>
+        
+        </ol>
+
+        <h3><a id="Text-to-Speech"></a>Watson Text-to-Speech</h3>
+        <p>The IBM Watson™ Text to Speech service provides APIs that use IBM's speech-synthesis capabilities to convert written text to natural-sounding speech. The service streams the synthesized audio back to the client with minimal delay. The audio uses appropriate cadence and intonation for its language and dialect to provide voices that are smooth and natural.</p>
+        <p>The service can be used in applications such as voice-automated chatbots, as well as a variety of voice-driven and screenless applications, such as tools for the disabled or visually impaired, video narration and voice over, and educational and home-automation solutions. It is appropriate for any application where audio is the preferred method of output (<a href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-about#about" target="_blank">TTS Documentation</a>).</p>
+
+        <h4>Obtaining TTS environment variables</h4>
+        <p>Below, we listed the environment variables (env vars) related to IBM Watson TTS on our source code:</p>
+
+        <ol>
+          <li>TTS_API_KEY</li>
+          <li>TTS_SERVICE_URL</li>
+          <li>TTS_DEFAULT_VOICE</li>
+        </ol>
+        <p>These env vars are necessary for using the TTS API. You can find more information about TTS API <a href="https://cloud.ibm.com/apidocs/text-to-speech" target="_blank">here</a>.</p>
+        <p></p>
+        
+        <ol>
+          <li>Obtaining API Key</li>
+          <p>After you create an instance of <a target="_blank" href="https://cloud.ibm.com/catalog/services/speech-to-text">TTS</a> on IBM Cloud, open the <a href="https://cloud.ibm.com/resources" target="_blank"><strong>resource list</strong></a>, then go to the TTS instance you created and click on the instance title. The service page will open, then click on <strong>manage</strong> and copy the API key.</p>
+          <img src="../src/images/tts_api_key.png"><br><br>
+
+          <li>Obtaining TTS service URL</li>
+          <p>The TTS service URL is below the API key on TTS service page at IBM Cloud (see picture above).</p>
+        
+          <li>TTS default voice</li>
+          <p>The TTS default voice should match the Watson Assistant bot language. To see a list of all TTS avaliable voices and choose the best voice for your bot please refer to <a target="_blank" href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-voices#language-voices-by">here</a>.<br>Example of <code>TTS_DEFAULT_VOICE</code> value: <code>en-US_MichaelV3Voice</code></p>
+        
+        </ol>
+
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://research.ibm.com/">IBM Research</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="../src/javascripts/scale.fix.js"></script>
+  </body>
+</html>

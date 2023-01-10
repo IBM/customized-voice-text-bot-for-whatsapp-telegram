@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Customized voice-text bot for WhatsApp and Telegram</title>
+
+    <link rel="stylesheet" href="../src/stylesheets/styles.css">
+    <link rel="stylesheet" href="../src/stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>IBM Research</h1>
+        <p>Repository designed for Tech for Justice Challenge #3787 - Empowering minority communities by enhancing financially local practices with AI</p>
+
+        <p class="view"><a href="https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram">View the Project on GitHub <small>IBM/customized-voice-text-bot-for-whatsapp-telegram</small></a></p><br>
+        <h3>Learn more about</h3>
+        <h4>
+          <a href="../runninglocally/index.html"> Running locally</a><br>
+          <a href="../deployment/index.html"> Deploying to IBM Cloud</a><br>
+        </h4>
+        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
+        <a href="../twilio/index.html"> Setup Twilio</a><br>
+        <a href="../watsonservices/index.html"> Setup Watson Services</a><br>
+        <a href="./index.html"> Setup Data Storage</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-customIntro"> Customizing Text-to-Speech</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-customization"> Customizing Speech-to-Text</a><br>
+        <p></p><br>
+      </header>
+      <section>
+        <h1>
+          <a id="title-page" class="anchor" href="../index.html" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Customized Voice and Text Chatbot fully integrated to database (Cloudant and COS) using Watson Services (STT, WA, TTS) deployed to IBM Cloud using Code Engine</a>
+        </h1>
+        <h2>Setup data storage</h2>
+
+        <p>As shown in the application architecture below, we built the app based on IBM technologies, such as Watson Assistant, Object Storage, and Code Engine. The data storage components of the application are the IBM Cloud Object Storage and IBM Cloudant Database.</p>
+
+        <img src="../src/images/architecture_ghpages.png"><br><br>
+        
+        <h3>IBM Cloudant</h3>
+        <p>Cloudant is a document-oriented NoSQL database-as-a-service offered on the IBM Cloud (<a target="_blank" href="https://cloud.ibm.com/docs/Cloudant">Cloudant documentation</a>). </p>
+        <p>In this project, Cloudant stores the bot's conversation history with WA session IDs, timestamps and links to media sent by the user and the bot. The document ID in the DB is the <strong>encrypted user mobile number</strong>. You can edit the Python script to remove the cryptography if you want.</p>
+
+        <p>Below, we listed the environment variables (env vars) necessary for enabling our app to make requests to the Cloudant API:</p>
+
+        <ol>
+          <li>IBM_CLOUDANT_APIKEY</li>
+          <li>IBM_CLOUDANT_URL</li>
+          <li>IBM_CLOUDANT_DATABASE</li>
+        </ol>
+
+        <p>You can find more information about STT API <a href="https://cloud.ibm.com/apidocs/cloudant" target="_blank">here</a>.</p>
+
+        <h4>Obtaining Cloudant environment variables</h4>
+
+        <ol>
+          <b><li>Obtaining Cloudant API key & URL</li></b>
+          <p>On IBM Cloud, after creating a Cloudant lite instance, go to resource list and search for your created instace and click on it. Then, click on 'service credentials', a screen like the image below should appear: </p>
+          <img src="../src/images/cloudant_api_1.png">
+          <p>On that screen, click on 'new credential', a pop-up will appear:
+          <img src="../src/images/cloudant_api_2.png"><br>
+          Choose the <strong>Manager</strong> role then click Add. After, open the created credential and copy the <code>apikey</code> value and the <code>url</code> value and paste in your <code>.env</code> file.</p>
+
+          <b><li>Obtaining Cloudant Database name</li></b>
+          <p>After creating Cloudant service and copying the API key and URL, launch the dashboard. Then, click on 'Create database'.
+            <img src="../src/images/cloudant_create_db.png"><br>
+            Choose a name for your database and write in the box. Then, select 'non-partitioned' and click on 'Create'. Done, your DB were created. Now, on the <code>.env</code> file, assign to <code>IBM_CLOUDANT_DATABASE</code> var the database name you chose.
+          </p>
+        </ol>
+        <p><p>To access database contents, access the IBM Cloud website, go to the resource list, open the created Cloudant instance, click on 'launch dashboard' and click on your database.</p></p>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.ibm.com/IBM-Research-AI">IBM-Research-AI</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="../src/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

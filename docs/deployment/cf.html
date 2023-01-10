@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>AI for Microcredit by IBM-Research-AI</title>
+
+    <link rel="stylesheet" href="../src/stylesheets/styles.css">
+    <link rel="stylesheet" href="../src/stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>AI for Microcredit</h1>
+        <p>Repository designed for Tech for Justice Challenge #3787 - Empowering minority communities by enhancing financially local practices with AI</p>
+
+        <p class="view"><a href="https://github.ibm.com/IBM-Research-AI/ai_for_microcredit">View the Project on GitHub <small>IBM-Research-AI/ai_for_microcredit</small></a></p><br>
+        <h3>Learn more about</h3>
+        <h4>
+          <a href="./local_app.html"> Running locally</a><br>
+          <a href="./deploy_ic.html"> Deploying to IBM Cloud</a><br>
+        </h4>
+        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
+        <a href="./twilio.html"> Setup Twilio</a><br>
+        <a href="./watson_services.html"> Setup Watson Services</a><br>
+        <a href="./storing_data.html"> Setup data storage</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-customIntro"> Customizing Text-to-Speech</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-customization"> Customizing Speech-to-Text</a><br>
+        <p></p><br>
+      </header>
+      <section>
+        <h1 id="tech-for-justice-3787-empowering-minority-communities-by-enhancing-financially-local-practices-with-ai">Tech for Justice 3787: Empowering Minority Communities by Enhancing Financially Local Practices With AI</h1>
+<h2 id="-introduction-"><strong>Introduction</strong></h2>
+<p>In this README, expect to find information relating to these topics:</p>
+<ul>
+<li>Chatbot dialog development</li>
+<li>App architecture</li>
+<li>Instructions for running the app locally</li>
+<li>Flask</li>
+<li>Docker</li>
+<li>Twilio Sandbox</li>
+<li>ngrok</li>
+<li>Watson Assistant</li>
+</ul>
+<p>Here are some explanations of terms that you will see in this README. Consistency in word choice was the goal, but there may be a few instances in which terms have been mixed around. Apologies in advance for any confusion.</p>
+<ul>
+<li>app/application: Flask application that is implemented by <code>src/whatsapp_bot.py</code></li>
+<li>chatbot: overall system as a whole (Twilio, Flask, and IBM Cloud services)</li>
+<li>watson assistant: this refers to the IBM cloud service that actually implements the conversational technology behind the chatbot</li>
+<li>stt: IBM Cloud Speech-to-Text</li>
+<li>tts: IBM Cloud Text-to-Speech</li>
+<li>cf: IBM Cloud Cloud Foundry</li>
+<li>cli: IBM Cloud Command Line Interface</li>
+</ul>
+<h3 id="-repository-guide-"><strong>Repository Guide</strong></h3>
+<p><strong><code>master</code> branch</strong></p>
+<p>This branch contains all of the files and instructions necessary for running the app locally and the dialog versions related to local run.</p>
+<p><strong><code>cf-deployment</code> branch</strong></p>
+<p>This branch contains all of the files and instructions necessary for deploying the app on <a href="https://www.youtube.com/watch?v=oUpqXxmr6oU">Cloud Foundry</a>.</p>
+<p><strong><code>.markdownlint.json</code></strong></p>
+<p>The <code>.markdownlint.json</code> file is a json file used for configuring different settings and standards for editing markdown (.md) files in Visual Studio Code. More information <a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">here</a>. When cloning this repository, this file may be needed or unnecessary depending on your IDE.</p>
+<p><strong><code>requirements_.txt files</code></strong></p>
+<p><a href="https://note.nkmk.me/en/python-pip-install-requirements/">Files</a> for installing dependencies.</p>
+<p><strong><code>src</code> folder</strong></p>
+<p>This folder can contain files that are important to the actual development of the app. Right now it only contains <code>whatsapp_bot.py</code>.</p>
+<p><strong><code>images</code> folder</strong></p>
+<p>This folder contains some images that are referred to in this README.</p>
+<p><strong><code>SkillsBots</code> folder</strong>
+This folder contains JSON files for Skills that you can upload to Watson Assistant. Please refer to the Watson Assistant section of this README for more information.</p>
+<p><strong><code>data</code> folder</strong></p>
+<p>This folder currently stores audio files (from both the user and Watson Assistant).</p>
+<p>In the local run we use the 2.0.1 and 3.0 dialog versions, avaliable in following Watson Assistant instance: 3787_Microcredit_WatsonAssistant, in the IBM Cloud RIS5-BRL server.  </p>
+<p>Here is the link for all the skills: <a href="https://us-south.assistant.watson.cloud.ibm.com/crn%3Av1%3Abluemix%3Apublic%3Aconversation%3Aus-south%3Aa%2F59506c69395f4b3f979f594bd9dc385a%3A40200fe3-b2a3-4774-9a51-78ab6390e04b%3A%3A/skills">https://us-south.assistant.watson.cloud.ibm.com/crn%3Av1%3Abluemix%3Apublic%3Aconversation%3Aus-south%3Aa%2F59506c69395f4b3f979f594bd9dc385a%3A40200fe3-b2a3-4774-9a51-78ab6390e04b%3A%3A/skills</a></p>
+<h3 id="-description-"><strong>Description</strong></h3>
+<p>As shown in the diagram, a user interacts with the chatbot by sending a message on WhatsApp to a specific Twilio number. Then Twilio forwards the message to the Flask application using an ngrok url (see ngrok section below for more details).
+The Flask application then identifies if the message received was an audio message or text message.</p>
+<h4 id="-if-the-message-received-was-audio-"><strong>If the Message Received was Audio</strong></h4>
+<p>If the message was audio, the app sends the audio file to Speech-to-Text and receives its text transcription. With the transcription, it sends a request to Watson Assistant for its response. Once it receives Watson Assistant&#39;s response, it sends Watson Assistant&#39;s response to Text-to-Speech and downloads the resulting audio transcription. Then it sends this transcription back to the WhatsApp user via the Twilio API.</p>
+<h4 id="-if-the-message-received-was-text-"><strong>If the Message Received was Text</strong></h4>
+<p>If the message was text, the app sends the text message directly to Watson Assistant for its response. Once it receives its response, it sends the message back to the user using Twilio.</p>
+<h2 id="-instructions-for-deploying-on-cloud-foundry-"><strong>Instructions for Deploying on Cloud Foundry</strong></h2>
+<p>Please follow these following subsections in order, to deploy the app on Cloud Foundry.</p>
+<h3 id="-cloud-foundry-overview-"><strong>Cloud Foundry Overview</strong></h3>
+<p>Cloud Foundry, as I (Ayo) understood it, is a PaaS (Platform as a Service) that attempts to make cloud deployment very simple, when compared to using virtual machines and containers. As you will see in this README, the process of deploying an app on Cloud Foundry is not too long and does not require creating a virtual machine, load balancers, etc. This README will take you through the deployment process, which will be done mostly with the IBM Cloud CLI (Command Line Interface), while using the IBM Cloud console to check our work. Here is an <a href="https://www.youtube.com/watch?v=oUpqXxmr6oU">overview video</a> that really explains Cloud Foundry, and how it relates to other methods of cloud deployment. CF has a free usage amount that should let us deploy the chatbot for testing purposes. This is the official <a href="https://docs.cloudfoundry.org">CF documentation</a>. This is the <a href="https://cli.cloudfoundry.org/en-US/v6/">documentation for specifc CF commands</a> using the IBM Cloud CLI.</p>
+<p>CF uses  <a href="https://docs.cloudfoundry.org/buildpacks/">Buildpacks</a> to make deployment easier. When we deploy an application a specific language (Python, PHP, etc), if CF has a buildpack for it, it examines the application when it is pushed and handles identifying what dependencies to download, and other configurations. Since the chatbot is a Python application, CF automatically uses a Python buildpack when the app is pushed.</p>
+<h3 id="-necessary-components-"><strong>Necessary Components</strong></h3>
+<p>To deploy the app successfully, please ensure that you have these components ready:</p>
+<ul>
+<li>WhatsApp account</li>
+<li><a href="https://www.twilio.com/try-twilio">Free Twilio account</a> (no credit card needed; comes with 15 USD credit)<ul>
+<li>Choose Programmable SMS as the selected service</li>
+<li>Python would be the selected programming language</li>
+</ul>
+</li>
+<li>IBM Cloud account<ul>
+<li>Register for the free versions of Speech-to-Text, Text-to-Speech, and Watson Assistant (please also see the section &quot;Watson Assistant&quot;)</li>
+<li>When registering for these services, you can select Dallas as the location</li>
+</ul>
+</li>
+<li><a href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started">IBM Cloud CLI</a> downloaded and installed</li>
+</ul>
+<h3 id="-environment-set-up-"><strong>Environment Set-up</strong></h3>
+<p>Cloning this repository should take care of the files and folders set-up. Locally, you need to create a virtual environment, install the requirements, and set up a .env file in the folder <code>src/</code>.We will need these environment variables to build the Docker Image and deploy the app:</p>
+<ul>
+<li>STT_API_KEY</li>
+<li>TTS_API_KEY</li>
+<li>WATSON_ASSISTANT_API_KEY</li>
+<li>WATSON_ASSISTANT_ID</li>
+<li>URL (read on for the explanation on how to get this)</li>
+</ul>
+<p>For directions on how to obtain the first four environment variables, please refer to the README that walks through running the app locally: Environment Set-up section.</p>
+<h3 id="-deploying-the-app-"><strong>Deploying the App</strong></h3>
+<p>This part of the README will walk through deploying the app using the CLI. It is loosely based on this <a href="https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-public-deployingapps">tutorial</a> and this <a href="https://docs.cloudfoundry.org/buildpacks/python/index.html">one</a>, but there are some steps that are not covered in these. <strong>Note</strong> you might see terminal commands that start with <code>cf</code> (e.g. <code>$ cf push...</code>). For mac, this would translate to using <code>$ ibmcloud cf push...</code>).</p>
+<h4 id="-creating-the-app-"><strong>Creating the App</strong></h4>
+<p>Once you are logged into IBM Cloud, this <a href="https://cloud.ibm.com/cloudfoundry/overview">link</a> should take you to a signed in version of CF.
+After that, you would click <strong>&quot;Create&quot;</strong>. Then on the app creation page, you would select <strong>&quot;Python community&quot;</strong> under <strong>&quot;Configure your resource&quot;</strong>. Then you would type in a unique <strong>&quot;App Name&quot;</strong>. <strong>Important: &quot;Org&quot; and &quot;Space&quot;</strong> should automatically be filled out. Save these as may need them later, and please remember the app name too. Now, you may create the app. We do this process on the browser, so that we can validate the unique app name pretty easily. The following two pictures should show you the screens that you will need to execute these steps.</p>
+<p><strong>Cloud Foundry Dashboard</strong></p>
+<p><strong>Cloud Foundry App Creation</strong></p>
+<h4 id="-obtaining-the-url-"><strong>Obtaining the URL</strong></h4>
+<p>The <code>URL</code> is basically a unique name for the app appended to &quot;mybluemix.net&quot;. 
+When we push the app, it will be publicly available at something like &quot;appname.mybluemix.net&quot;. So in the picture above, the <code>URL</code> would be microcreditchatbot.mybluemix.net.</p>
+<p>After this, you would open up the Twilio console:</p>
+<p>Then navigate to your WhatsApp Sandbox settings:</p>
+<ol>
+<li>Messaging</li>
+<li>Settings</li>
+<li>WhatsApp sandbox settings</li>
+</ol>
+<p>You might have to go through a small tutorial when you first visit this page. Go through the tutorial, and then you should be able to see a screen just like this one:</p>
+<p>Image</p>
+<p>Then you should copy and paste your app url in the box &quot;WHEN A MESSAGE COMES IN&quot;. Append the path &quot;/chatbot-message&quot; to your ngrok url too - so the final url that goes in that box should be similar to <code>http://appname.mybluemix.net/chatbot-message</code>. All other settings can be left as the default.</p>
+<p>After this is done, you now should be able to deploy the app and send messages.</p>
+<p>First, log into IBM Cloud using the commnand line interface:</p>
+<p><code>$ ibmcloud login</code></p>
+<p>That may fail. If it does, you can use this command. Follow the steps, obtain the passcode, and login.</p>
+<p><code>$ ibmcloud login --sso</code></p>
+<p>Second, set up up the <code>org</code> and <code>space</code>, that we obtained from before.</p>
+<p><code>$ ibmcloud target -o &lt;value&gt; -s &lt;value&gt;</code></p>
+<p>Now, we will set up the environment variables:</p>
+<p><code>$ ibmcloud cf set-env &lt;APP_NAME&gt; &lt;ENV_VAR_NAME&gt; &lt;ENV_VAR_VALUE.</code></p>
+<p>Please do this for each of the 5 environment variables from earlier.</p>
+<p>After doing this, you can check that all of the environment variables are present:</p>
+<p><code>$ ibmcloud cf env &lt;APP_NAME&gt;</code></p>
+<p>Now we can deploy the app (be sure to do this from the top-level directory of this repository, in other words inside of the <code>ai_for_microcredit</code> directory):</p>
+<p><code>$ ibmcloud cf push &lt;APP_NAME&gt; -c &quot;python3 src/whatsapp_bot.py&quot;</code></p>
+<p>The <a href="https://docs.cloudfoundry.org/buildpacks/python/index.html#start-command"><code>-c</code> argument</a> tells CF to run the following command when starting the app, so in this case, it is telling CF to run the <code>whatsapp_bot.py</code> file, which is the Flask app, upon deploying the app. Deployment may take a couple of minutes, and you might see a few warnings, but if you see something similar to this then the app has been deployed sucessfully:</p>
+<pre><code class="lang-terminal">     <span class="hljs-selector-tag">state</span>     <span class="hljs-selector-tag">since</span>                  <span class="hljs-selector-tag">cpu</span>    <span class="hljs-selector-tag">memory</span>          <span class="hljs-selector-tag">disk</span>           <span class="hljs-selector-tag">details</span>
+<span class="hljs-selector-id">#0</span>   <span class="hljs-selector-tag">running</span>   2021<span class="hljs-selector-tag">-09-08T16</span><span class="hljs-selector-pseudo">:14</span><span class="hljs-selector-pseudo">:58Z</span>   0<span class="hljs-selector-class">.2</span>%   22<span class="hljs-selector-class">.1M</span> <span class="hljs-selector-tag">of</span> 128<span class="hljs-selector-tag">M</span>   203<span class="hljs-selector-class">.2M</span> <span class="hljs-selector-tag">of</span> 1<span class="hljs-selector-tag">G</span>
+</code></pre>
+<p>Then send the &quot;join ...&quot; message from your WhatsApp account to the Twilio number that you see on the sandbox page:</p>
+<p>Image</p>
+<p>You should see  a sentence that looks like &quot;Invite your friends to your Sandbox. Ask them to send a WhatsApp message to...&quot;</p>
+<p>If you refresh the sandbox page, you should see your number under &quot;Sandbox Participants&quot; on the sandbox page</p>
+<p>If you go to the Overview page (Messaging -&gt; Overview), you should see message recorded under &quot;Recent Messages&quot;. Then if you send a message like &quot;Hi&quot;, you should get a response from the chatbot.</p>
+<p>There are also other helpful pages on the Twliio console and CF console that can help with things like identifying errors.</p>
+<p>Of course, there should also be a working Watson Assistant dialog skill attached to your Watson Assistant (that correlates with <code>WATSON_ASSISTANT_ID</code>) in order for you to receive sensible responses from the app.</p>
+<p><strong>Important Note</strong>: It would be good to stop the app once you are done running it, to avoid any possible charges. The free version of CF should allow us to run the app indefinitely since it is still small in scale at the moment, but it never hurts to be sure. You can view the app under your <a href="https://cloud.ibm.com/resources">Resource List (specifically under &quot;Cloud Foundry apps&quot;)</a> and access the CF dashboard for it through this list by clicking on the app name. You can also stop and restage the app using these commands respectively:</p>
+<ul>
+<li><code>$ ibmcloud cf stop &lt;APP_NAME&gt;</code></li>
+<li><code>$ ibmcloud cf restage &lt;APP_NAME&gt;</code></li>
+</ul>
+<h3 id="-handling-errors-"><strong>Handling Errors</strong></h3>
+<p>The code has try-except blocks in many places, so as to catch Twilio and Flask specific errors. Most errors should produce a debug output within the terminal. Some errors might be visible from the Twilio console, and Twilio might email you when errors occur. Some errors might be visible from within the Cloud Foundry console. You can also use this command, which would show output logs from deploying app, and may provide some useful error output if errors occurred:</p>
+<p><code>$ ibmcloud cf logs &lt;APP_NAME&gt; --recent</code></p>
+</section>
+<footer>
+  <p>This project is maintained by <a href="https://github.ibm.com/IBM-Research-AI">IBM-Research-AI</a></p>
+  <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+</footer>
+</div>
+<script src="javascripts/scale.fix.js"></script>
+</body>
+</html>

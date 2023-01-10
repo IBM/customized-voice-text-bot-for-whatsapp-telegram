@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>AI</title>
+    <title>Customized voice-text bot for WhatsApp and Telegram</title>
 
-    <link rel="stylesheet" href="./stylesheets/styles.css">
-    <link rel="stylesheet" href="./stylesheets/github-light.css">
+    <link rel="stylesheet" href="./src/stylesheets/styles.css">
+    <link rel="stylesheet" href="./src/stylesheets/github-light.css">
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,40 +15,81 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Project</h1>
-        <p>Repository </p>
+        <h1>IBM Research</h1>
+        <p>Repository designed for Tech for Justice Challenge #3787 - Empowering minority communities by enhancing financially local practices with AI</p>
 
         <p class="view"><a href="https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram">View the Project on GitHub <small>IBM/customized-voice-text-bot-for-whatsapp-telegram</small></a></p><br>
-
+        <h3>Learn more about</h3>
+        <h4>
+          <a href="./runninglocally/index.html"> Running locally</a><br>
+          <a href="./deployment/index.html"> Deploying to IBM Cloud</a><br>
+        </h4>
+        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
+        <a href="./twilio/index.html"> Setup Twilio</a><br>
+        <a href="./watsonservices/index.html"> Setup Watson Services</a><br>
+        <a href="./datastorage/index.html"> Setup Data Storage</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-customIntro"> Customizing Text-to-Speech</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-customization"> Customizing Speech-to-Text</a><br>
+        <p></p><br>
       </header>
       <section>
         <h1>
-<a id="home" class="anchor" href="../index.html" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Customized Voice and Text Chatbot fully integrated to database (Cloudant and COS) using Watson Services (STT, WA, TTS) deployed to IBM Cloud using Code Engine.</a></h1>
-<h2>
-<a id="flask" class="anchor" href="#flask" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Flask</strong>
-</h2>
-<p><a href="https://flask.palletsprojects.com/en/2.0.x/">Flask</a> is a popular web microframework that can be used for creating web applications. The other popular web framework for Python is Django, but it has many more dependencies than Flask. Flask is pretty simple to work with, and it allows for many design and customization choices from the developer, so it is good for quickly building web apps, as we have done with this chat bot. Watson Assistant can currently only communicate using text messages (in other words, strings), so in order to enable the use of audio messages with the chat bot, an application is needed to process audio messages. Thus, this Flask application is the backbone of the chatbot. Messages are forwarded through Twilio to the Flask application, which then processes each message differently, depending on whether the message is audio or text. The application will also eventually access a credit scoring machine learning model, so having a central application is good for coordinating all of the different services that go into this chat bot.</p>
-<p>In <code>src/whatsapp.py</code>, Flask is used to create specific this <a href="https://restfulapi.net/resource-naming/">RESTful</a> <a href="https://rapidapi.com/blog/api-glossary/endpoint/">API endpoint</a>:</p>
-<ul>
-<li>
-<code>POST /chatbot-message</code>
-<ul>
-<li>description: sending a message to the chatbot</li>
-<li>returns: <a href="https://www.twilio.com/docs/libraries/reference/twilio-python/6.63.0/docs/source/_rst/twilio.twiml.html?highlight=messagingresponse#twilio.twiml.messaging_response.MessagingResponse">A Twilio MessagingResponse</a>
-<ul>
-<li>this will have a textual body (text message) or an audio file attached (audio message)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <a id="title-page" class="anchor" href="./index.html" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Customized Voice and Text Chatbot fully integrated to database (Cloudant and COS) using Watson Services (STT, WA, TTS) deployed to IBM Cloud using Code Engine</a>
+        </h1>
+        <h2>
+          <a id="motivation" class="anchor" href="#motivation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Motivation</strong>
+        </h2>
+        <p>Small business owners (SBOs) face several challenges when asking for micro-credit loans from financial institutions. Usual difficulties include low credit scores, unbaked situation, outstanding debts, informal employment situations, inability to showcase their payable capacity, and lack of financial guarantor. Moreover, SBOs often find it hard to apply for micro-credit loans due to bureaucracy, documentation proof, and lack of information on proceeding. That is why banks and non-profit organizations have credit agents and advisors to give them directions to help them. It is particularly challenging for these credit advisors in the Global South context to assess creditworthiness and act accordingly. Credit agents are usually SBOs first point of contact. They perform the screening process of credit access before submitting it to the decision-makers, the bank analysts.</p>
+        <p>Both Credit agents and SBOs could have their lives facilitated by an Assistant whose deployment could be done through a messaging Application. One of the most popular messaging application not only in Brazil,  but also around globe is WhatsApp which has more than 2 billion users. WhatsApp allows users to interact through text and voice.</p>
+        <p>This system proposes a text and voice conversational user interface deployed for WhatsApp using IBM Watson Speech-to-text, IBM Watson Assistant and IBM Watson Text-to-speech which integrates these services using third-party known as Twilio. Data can be stored in IBM Cloud Object Storage and IBM Cloudant.</p>
+        <h2>
+          <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Introduction</strong>
+        </h2>
+        <p>In this website, expect to find information regarding these topics:</p>
+        <ul>
+          <li>Chatbot dialog development</li>
+          <li>App architecture</li>
+          <li>Instructions for deploying the app to IBM Cloud</li>
+          <li>Docker</li>
+          <li>Twilio Sandbox</li>
+          <li>Watson Assistant</li>
+          <li>Document-oriented database</li>
+          <li>Soon: Customization of speech synthesis and recognition</li>
+        </ul>
+        <p>Here are some explanations of terms that you will see in this website. Consistency in word choice was the goal, but there may be a few instances in which terms have been mixed around. If there's any confusion, feel free to open an issue for clarification, commenting or sending us a message.</p>
+        <ul>
+          <li>App/application: this refers to the Flask application that receives the user's requests and returns the response from the conversational assistant.</li>
+          <li>Chatbot: this refers to the overall system as a whole (Twilio, Flask, and IBM Cloud services)</li>
+          <li>Watson Assistant/WA: this refers to the IBM cloud service that actually implements the conversational technology behind the chatbot</li>
+          <li>STT: refers to IBM Speech-to-Text</li>
+          <li>TTS: refers to IBM Text-to-Speech</li>
+          <li>CE: refers to IBM Code Engine</li>
+          <li>COS: refers to IBM Cloud Object Storage</li>
+          <li>CR: refers to IBM Container Registry</li>
+        </ul>
+        <h2>
+          <a id="app-architecture" class="anchor" href="#app-architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>App Architecture</strong>
+        </h2>
+        <img src="./src/images/architecture_ghpages.png" alt="See ./src/images/architecture_diagram.png">
+        <h3>
+          <a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Description</strong>
+        </h3>
+          <p>As shown in the diagram, a user interacts with the chatbot by sending a message on WhatsApp to a specific Twilio number. Then Twilio forwards the message to the Flask application using a public endpoint provided by the containerized and deployed application running on Code Engine. The Flask application then identifies if the message received was an audio message or text message and processes it to return the response from Watson Assistant in the appropriate manner, whatever it may be (text or audio), according to the user's input.</p>
+        <h4>
+          <a id="if-the-message-received-is-audio" class="anchor" href="#if-the-message-received-is-audio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>If the received message is a voice recording</strong>
+        </h4>
+        <p>If it is an audio message, the app sends the audio file to Speech-to-Text and receives its transcription in text format. With the transcription, it sends a request to Watson Assistant for its response. Once Watson Assistant's response returns, it sends Watson Assistant's text response to Text-to-Speech and downloads the resulting audio transcription. Then it sends this audio back to the WhatsApp user via the Twilio API, along with other media responses, if any.</p>
+        <h4>
+          <a id="if-the-message-received-was-text" class="anchor" href="#if-the-message-received-was-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>If the received message is a text</strong>
+        </h4>
+        <p>If it is a text message, the app sends the text message directly to Watson Assistant for its response. Once it receives its response, the app sends the response to Twilio, which forwards it to the user.</p>
       </section>
       <footer>
-        <p>This project is maintained by <a href="https://github.com/IBM">IBM</a></p>
+        <p>This project is maintained by <a href="https://research.ibm.com/">IBM Research</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="./src/javascripts/scale.fix.js"></script>
     
   </body>
 </html>
