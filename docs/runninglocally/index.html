@@ -48,7 +48,7 @@
         <li>WhatsApp account</li><br>
         <li><a href="https://www.twilio.com/try-twilio">Free Twilio account</a> (no credit card needed; comes with 15 USD credit)
           <ul>
-            <li>For more instructions about creating a Twilio account please refer to <a href="./twilio.html">this page</a>.</li>
+            <li>For more instructions about creating a Twilio account please refer to <a href="../twilio/index.html">this page</a>.</li>
           </ul>
         </li>
         <li>IBM Cloud account (credit card required; no payment - all used services are free)
@@ -77,7 +77,7 @@
         <h3>
         <a id="environment-set-up" class="anchor" href="#environment-set-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Environment Set-up</strong>
         </h3>
-        <p>After acquiring the necessary components, you would need to create a <strong>Python 3 virtual environment</strong> (using <a href="https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments">virtualenv</a> for example), and install the dependencies. Below you can see how to do these steps:</p>
+        <p>After acquiring the necessary components and cloning our GitHub repository, you would need to create a <strong>Python 3 virtual environment</strong> (using <a href="https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments">virtualenv</a> for example), and install the dependencies. Below you can see how to do these steps:</p>
          <ul>
           <i>In the project local folder in your computer</i>: 
           <li>Creating the virtual environment:
@@ -110,28 +110,33 @@
     STT, TTS, Watson Assistant, COS and Cloudant API keys can be found on the IBM Cloud website (by going to Resource List and then opening each service). For the Watson Assistant ID, you first have to launch Watson Assistant (this can be done from the resource list) and create an assistant. After that, under Assistant Settings the assistant ID will be there.</p>
   <p>These are the API keys that you will need to run the app:</p>
   <ul>
-    <li>TWILIO_ACCOUNT_SID (Avaliable on <a href="https://console.twilio.com/?frameUrl=/console" target="_blank">Twilio Console</a>)</li>
-    <li>TWILIO_AUTH_TOKEN (Avaliable on <a href="https://console.twilio.com/?frameUrl=/console" target="_blank">Twilio Console</a>)</li>
-    <li>TWILIO_SANDBOX_NUMBER (Avaliable on <a href="https://console.twilio.com/us1/develop/sms/settings/whatsapp-sandbox?frameUrl=%2Fconsole%2Fsms%2Fwhatsapp%2Fsandbox%3Fx-target-region%3Dus1" target="_blank">Twilio Sandbox Settings</a>)</li>
-    <li>WA_API_KEY (refer to <a href="./watson_services.html"> Watson Services page</a>)</li> 
-    <li>WA_ID (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-    <li>WA_SERVICE_URL (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-    <li>COS_API_KEY_ID (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-    <li>COS_BUCKET (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-    <li>COS_BUCKET_LINK (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-    <li>COS_ENDPOINT (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-    <li>COS_INSTANCE_CRN (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-    <li>IBM_CLOUDANT_URL (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-    <li>IBM_CLOUDANT_APIKEY (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-    <li>IBM_CLOUDANT_DATABASE (refer to <a href="./storing_data.html"> Storing data page</a>) </li>
-    <li>STT_API_KEY (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-    <li>STT_SERVICE_URL (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-    <li>STT_MODEL (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-    <li>TTS_API_KEY (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-    <li>TTS_DEFAULT_VOICE (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-    <li>TTS_SERVICE_URL(refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
+    <li>TWILIO_ACCOUNT_SID <sup>1</sup></li>
+    <li>TWILIO_AUTH_TOKEN <sup>1</sup></li>
+    <li>TWILIO_SANDBOX_NUMBER <sup>2</sup></li>
+    <li>WA_API_KEY <sup>3</sup></li> 
+    <li>WA_ID <sup>3</sup></li> 
+    <li>WA_SERVICE_URL <sup>3</sup></li> 
+    <li>COS_API_KEY_ID <sup>4</sup></li>
+    <li>COS_BUCKET <sup>4</sup></li>
+    <li>COS_BUCKET_LINK <sup>4</sup></li>
+    <li>COS_ENDPOINT <sup>4</sup></li>
+    <li>COS_INSTANCE_CRN <sup>4</sup></li>
+    <li>IBM_CLOUDANT_URL <sup>4</sup></li>
+    <li>IBM_CLOUDANT_APIKEY <sup>4</sup></li>
+    <li>IBM_CLOUDANT_DATABASE <sup>4</sup> </li>
+    <li>STT_API_KEY <sup>3</sup></li>
+    <li>STT_SERVICE_URL <sup>3</sup></li>
+    <li>STT_MODEL <sup>3</sup></li>
+    <li>TTS_API_KEY <sup>3</sup></li>
+    <li>TTS_DEFAULT_VOICE <sup>3</sup></li>
+    <li>TTS_SERVICE_URL <sup>3</sup></li>
+      <br>
+    <sup>1</sup>Avaliable on <a href="https://console.twilio.com/?frameUrl=/console" target="_blank">Twilio Console</a><br>
+    <sup>2</sup>Avaliable on <a href="https://console.twilio.com/us1/develop/sms/settings/whatsapp-sandbox?frameUrl=%2Fconsole%2Fsms%2Fwhatsapp%2Fsandbox%3Fx-target-region%3Dus1" target="_blank">Twilio Sandbox Settings</a><br>
+    <sup>3</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/watsonservices/"> Watson Services page</a><br>
+    <sup>4</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/datastorage/"> Data Storage page</a><Br>
   </ul>
-  <p>Cloning our GitHub repository should take care of the files and folder set-up.</p>
+
   <p>This is how the <code>.env</code> file should look like:</p>
         <img src="../src/images/capture_.env_file_v2.png"><br><br>
   <h3>

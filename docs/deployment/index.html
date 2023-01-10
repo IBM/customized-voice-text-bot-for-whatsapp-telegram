@@ -50,7 +50,7 @@
         </li>
         <li><a href="https://www.twilio.com/try-twilio">Twilio account</a> (no credit card needed; comes with 15 USD credit)
           <ul>
-            <li>For more instructions about creating a Twilio account please refer to <a href="./twilio.html">this page</a>.</li>
+            <li>For more instructions about creating a Twilio account please refer to <a href="../twilio/index.html">this page</a>.</li>
           </ul>
         </li>
         <li>IBM Cloud account (credit card required; no payment - all used services are free)</li>
@@ -72,7 +72,7 @@
         <p>Cloning this repository should take care of the files and folders set-up. Locally, you need to create a virtual environment (venv), install the requirements, and set up a <code>.env</code> file in the folder <code>src/</code>.</p>
         <p>This is how you can create a venv, activate, and install the requirements:</p>
         <ul>
-          <i>In the repository local folder in your computer</i>: 
+          <i>In the project local folder in your computer</i>: 
           <li>Creating the virtual environment:
             <ul><li>Mac/Linux/Windows <code>$ python3 -m venv &ltname_of_virtualenv&gt </code></li></ul>
           </li>
@@ -91,27 +91,33 @@
         </ul>
         <p>To create and set up the <code>.env</code> file, you can use <a href="https://code.visualstudio.com/" target="_blank">VS Code</a> or your favorite terminal text editor. We will need these environment variables to build the Docker Image and deploy the app:</p>
         <ul>
-          <li>TWILIO_ACCOUNT_SID (Avaliable on <a href="https://console.twilio.com/?frameUrl=/console" target="_blank">Twilio Console</a>)</li>
-          <li>TWILIO_AUTH_TOKEN (Avaliable on <a href="https://console.twilio.com/?frameUrl=/console" target="_blank">Twilio Console</a>)</li>
-          <li>TWILIO_SANDBOX_NUMBER (Avaliable on <a href="https://console.twilio.com/us1/develop/sms/settings/whatsapp-sandbox?frameUrl=%2Fconsole%2Fsms%2Fwhatsapp%2Fsandbox%3Fx-target-region%3Dus1" target="_blank">Twilio Sandbox Settings</a>)</li>
-          <li>WA_API_KEY (refer to <a href="./watson_services.html"> Watson Services page</a>)</li> 
-          <li>WA_ID (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-          <li>WA_SERVICE_URL (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-          <li>COS_API_KEY_ID (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-          <li>COS_BUCKET (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-          <li>COS_BUCKET_LINK (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-          <li>COS_ENDPOINT (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-          <li>COS_INSTANCE_CRN (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-          <li>IBM_CLOUDANT_URL (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-          <li>IBM_CLOUDANT_APIKEY (refer to <a href="./storing_data.html"> Storing data page</a>)</li>
-          <li>IBM_CLOUDANT_DATABASE (refer to <a href="./storing_data.html"> Storing data page</a>) </li>
-          <li>STT_API_KEY (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-          <li>STT_SERVICE_URL (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-          <li>STT_MODEL (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-          <li>TTS_API_KEY (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-          <li>TTS_DEFAULT_VOICE (refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
-          <li>TTS_SERVICE_URL(refer to <a href="./watson_services.html"> Watson Services page</a>)</li>
+          <li>TWILIO_ACCOUNT_SID <sup>1</sup></li>
+          <li>TWILIO_AUTH_TOKEN <sup>1</sup></li>
+          <li>TWILIO_SANDBOX_NUMBER <sup>2</sup></li>
+          <li>WA_API_KEY <sup>3</sup></li> 
+          <li>WA_ID <sup>3</sup></li> 
+          <li>WA_SERVICE_URL <sup>3</sup></li> 
+          <li>COS_API_KEY_ID <sup>4</sup></li>
+          <li>COS_BUCKET <sup>4</sup></li>
+          <li>COS_BUCKET_LINK <sup>4</sup></li>
+          <li>COS_ENDPOINT <sup>4</sup></li>
+          <li>COS_INSTANCE_CRN <sup>4</sup></li>
+          <li>IBM_CLOUDANT_URL <sup>4</sup></li>
+          <li>IBM_CLOUDANT_APIKEY <sup>4</sup></li>
+          <li>IBM_CLOUDANT_DATABASE <sup>4</sup> </li>
+          <li>STT_API_KEY <sup>3</sup></li>
+          <li>STT_SERVICE_URL <sup>3</sup></li>
+          <li>STT_MODEL <sup>3</sup></li>
+          <li>TTS_API_KEY <sup>3</sup></li>
+          <li>TTS_DEFAULT_VOICE <sup>3</sup></li>
+          <li>TTS_SERVICE_URL <sup>3</sup></li>
+            <br>
+          <sup>1</sup>Avaliable on <a href="https://console.twilio.com/?frameUrl=/console" target="_blank">Twilio Console</a><br>
+          <sup>2</sup>Avaliable on <a href="https://console.twilio.com/us1/develop/sms/settings/whatsapp-sandbox?frameUrl=%2Fconsole%2Fsms%2Fwhatsapp%2Fsandbox%3Fx-target-region%3Dus1" target="_blank">Twilio Sandbox Settings</a><br>
+          <sup>3</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/watsonservices/"> Watson Services page</a><br>
+          <sup>4</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/datastorage/"> Data Storage page</a><Br>
         </ul>
+        
         <p>This is how the <code>.env</code> file should look like:</p>
         <img src="../src/images/capture_.env_file_v2.png"><br><br>
         <h3 id="-deploying-the-app-"><strong>Deploying the App</strong></h3>       
