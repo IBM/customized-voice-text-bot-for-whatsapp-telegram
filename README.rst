@@ -8,7 +8,7 @@ We built a text and voice conversational user interface deployed for WhatsApp an
 More information 
 ========================================
 
-For more information refer to the `project website. <https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/>` 
+For more information refer to the `project website. <https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/>`_
 
 How to cite Voice and 'Text Chatbot designed for WhatsApp and Telegram' in your publications
 ========================================
@@ -17,7 +17,7 @@ If you find Voice and Text Chatbot designed for WhatsApp and Telegram to be usef
 
 .. code-block:: python
 
-    @misc{simulai,
+    @misc{Text Chatbot designed for WhatsApp and Telegram,
       author = {IBM},
       title = {Text and voice conversational user interface deployed for WhatsApp and Telegram using IBM Watson Speech-to-Text, IBM Watson Assistant, and IBM Watson Text-to-Speech},
       note = "https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram",
