@@ -15,11 +15,21 @@ TWILIO_SANDBOX_NUMBER = os.getenv('TWILIO_SANDBOX_NUMBER')
 TWILIO_CLIENT_ACCOUNT = twilio_client(
     TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
-common_media_file_types = ['jpg', 'peg', 'png',
-                           'mp3', 'wav', 'ogg', 
-                           'mp4', 'pus', 'aac']
+def answer_is_media(answer: str) -> bool:
+    """
+    Check whether the given answer is a media file.
 
-def answer_is_media(answer):
+    Parameters
+    ----------
+    answer : str
+        The answer from the chatbot
+
+    Returns
+    -------
+    bool
+        True if the answer is a media file, False otherwise.
+    """
+    common_media_file_types = ['jpg', 'peg', 'png', 'mp3', 'wav', 'ogg', 'mp4', 'pus', 'aac']
     if type(answer) is str:
         if answer[-3:] in common_media_file_types:
             return True
@@ -29,7 +39,19 @@ def answer_is_media(answer):
         return False
 
 def answering_with_twilio(
-    user_number_ID, is_answer_media, content):
+    user_number_ID: int, is_answer_media: bool, content: str):
+    """
+    Send a message to a user's WhatsApp number using the Twilio API.
+
+    Parameters
+    ----------
+    user_number_ID : int
+        The phone number of the user in E.164 format.
+    is_answer_media : bool
+        True if the answer is a media file, False otherwise.
+    content : str
+        The content of the message (either text or media URL).
+    """
     if is_answer_media:
         TWILIO_CLIENT_ACCOUNT.messages.create(
             media_url = content,
@@ -41,8 +63,25 @@ def answering_with_twilio(
             from_ = 'whatsapp:+' + TWILIO_SANDBOX_NUMBER,
             to = 'whatsapp:+' + str(user_number_ID))
 
+from typing import List, Union
+
 def delivering_answer_whatsapp_twilio(
-    assistant_answer, user_number_ID):
+    assistant_answer: Union[str, List[str]], user_number_ID: int) -> str:
+    """
+    Deliver the chatbot's answer to the user via WhatsApp using the Twilio API.
+
+    Parameters
+    ----------
+    assistant_answer : Union[str, List[str]]
+        The answer from the chatbot.
+    user_number_ID : int
+        The phone number of the user in E.164 format.
+
+    Returns
+    -------
+    str
+        A TwiML string containing the chatbot's answer.
+    """
     resp = MessagingResponse()
     msg = resp.message()
     if type(assistant_answer) is list:
