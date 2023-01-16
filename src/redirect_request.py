@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from typing import List, Union
 from watson_assistant import assistant_conversation, create_session_ID
 from db import (create_new_document, update_conversation_shift,
                 verify_document_exists, viewing_last_session_ID)
@@ -44,7 +45,7 @@ def checking_user_existence_DB(user_ID: int):
 
 
 def redirect_request(
-    message: str, user_ID: int, message_is_audio: bool, 
+    message: Union[str, List[str]], user_ID: int, message_is_audio: bool, 
     timestamp: float, non_supported_file: bool) -> str:
     """
     Redirect the user's request to the appropriate function.
@@ -67,7 +68,7 @@ def redirect_request(
     str
         The response from the chatbot.
     """
-    if message.lower() == "break":
+    if str(message).lower() == "break":
         update_session_ID(user_ID)
         message = "Hi"
     else:

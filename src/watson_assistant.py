@@ -4,7 +4,7 @@ from datetime import datetime
 from ibm_watson import AssistantV2, ApiException
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from audio_services import process_audio_tts
-from db import update_conversation_shift, update_context_variables
+from db import update_conversation_shift, upload_specific_feature
 
 ########################
 # Setting Environment Variables and setting up services
@@ -176,7 +176,7 @@ def assistant_conversation(message: str, user_ID: str, session_ID: str, message_
         if 'user_defined' in conversation['context']['skills']['main skill']:
             context_variables = (
                 conversation['context']['skills']['main skill']['user_defined'])
-            update_context_variables(
+            upload_specific_feature(
                 str(user_ID), session_ID, context_variables)
         
         response = conversation['output']['generic']
