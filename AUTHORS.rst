@@ -4,12 +4,12 @@ Credits
 
 Development Team
 ----------------
-* Adinan Alves de Brito Filho 
-* Marcelo Grave  
-* Tarık Kaan Koç
+* Adinan Alves de Brito Filho <adinan@ibm.com>
+* Marcelo Grave  <marcelo.grave@ibm.com>
+* Ayobami Bolaji <ayobamibolaji2022@u.northwestern.edu>
+
 
 Contributors
 ------------
 * Name ~ Surname <email@addres.comm>
-
-(Include your name and email here if your are actively contributing to the project in anyway)
+* Tarık Kaan Koç <tarikkaan1koc@gmail.com>
