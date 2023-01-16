@@ -18,12 +18,15 @@ def handle_exception(e):
     This function is used to handle HTTP errors that may result from specific 
     Flask actions. Return JSON instead of HTML for HTTP errors.
 
-    param: e, the error
-        type: HTTPException error
-    returns: response, parsed error
-        type: JSON
+    Parameters
+    ----------
+    e: HTTPException error
+        the error
+        
+    Returns: 
+    ----------
+        It uses Flask's @app.errorhandler(HTTPException) decorator to handle HTTP errors by converting the error to JSON format instead of HTML and returning it to the user.
     """
-
     # start with the correct headers and status code from the error
     response = e.get_response()
     # replace the body with JSON
@@ -43,10 +46,12 @@ def process_msg():
     message handler. It also handles returning responses to WhatsApp users, 
     which can be audio or text.
 
-    returns: resp, a Twilio message, can be audio or text
-        type: MessagingResponse
-              Some documentation here: 
-              https://www.twilio.com/docs/libraries/reference/twilio-python/
+    Returns
+    -------
+    resp : MessagingResponse
+        A Twilio message, can be audio or text. For more information on how to use 
+        the class, you can refer to the documentation 
+        `https://www.twilio.com/docs/libraries/reference/twilio-python/`
     """
 
     user_number_ID = request.values.get('WaId')
