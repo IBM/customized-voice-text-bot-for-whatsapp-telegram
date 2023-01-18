@@ -11,5 +11,4 @@ Development Team
 
 Contributors
 ------------
-* Name ~ Surname <email@addres.comm>
 * Tarık Kaan Koç <tarikkaan1koc@gmail.com>
