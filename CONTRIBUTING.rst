@@ -86,7 +86,6 @@ Before you submit a pull request, check that it meets these guidelines:
 1. We strongly recommend you to create a dedicated branch when modifying core features. It can be easily tested by everyone
    and afterwards merged to **main**. 
 
-2. If the pull request adds functionality, the docs should be updated. Put
-   your new functionality into a function with a docstring
+2. If the pull request adds functionality, the docs should be updated. Put your new functionality into a function with a docstring.
 
-3. The pull request should work for Python 3.6, 3.7, 3.8, and 3.9. 
+3. The pull request should work for Python 3.6, 3.7, 3.8, 3.9, 3.10 and 3.11. 
