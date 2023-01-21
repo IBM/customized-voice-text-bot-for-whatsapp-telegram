@@ -17,9 +17,9 @@ If you find Voice and Text Chatbot designed for WhatsApp and Telegram to be usef
 
 .. code-block:: python
 
-    @misc{Text Chatbot designed for WhatsApp and Telegram,
+    @misc{Voice and Text Chatbot designed for WhatsApp and Telegram,
       author = {IBM},
-      title = {Text and voice conversational user interface deployed for WhatsApp and Telegram using IBM Watson Speech-to-Text, IBM Watson Assistant, and IBM Watson Text-to-Speech},
+      title = {Text and voice conversational user interface deployed for WhatsApp and Telegram using IBM Watson technologies},
       note = "https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram",
       year = {2022},
     }
