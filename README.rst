@@ -8,7 +8,7 @@ We built a text and voice conversational user interface deployed for WhatsApp an
 More information 
 ================
 
-For more information about the project and instructions about local run and deployment, please refer to the `project website. <https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/>`_. 
+For more information about the project and instructions about local run and deployment, please refer to the `project website <https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/>`_. 
 
 How to cite Voice and 'Text Chatbot designed for WhatsApp and Telegram' in your publications
 ============================================================================================
