@@ -1,5 +1,5 @@
 import os, requests
-from ibm_boto3 import client as COSClient
+from ibm_boto3 import resource as cos_resource
 from ibm_botocore.client import Config
 from pathlib import Path
 from dotenv import load_dotenv
@@ -15,11 +15,10 @@ COS_ENDPOINT = os.getenv('COS_ENDPOINT')
 COS_INSTANCE_CRN = os.getenv('COS_INSTANCE_CRN')
 
 # Create application working directory
-DIRECTORY = 'temp'
+DIRECTORY = './temp'
 Path(DIRECTORY).mkdir(parents=True, exist_ok=True)
 
-cos = COSClient(
-    service_name='s3',
+cos = cos_resource('s3',
     ibm_api_key_id=COS_API_KEY_ID,
     ibm_service_instance_id=COS_INSTANCE_CRN,
     config=Config(signature_version='oauth'),
@@ -58,7 +57,7 @@ def upload_file_cos(file_path):
     """
     file_name = file_path.lstrip(DIRECTORY + '/')
     try:
-        cos.upload_file(Filename=file_path, Bucket=COS_BUCKET, Key=file_name)
+        cos.Object(COS_BUCKET, file_name).upload_file(file_path)
         Path(file_path).unlink(missing_ok=True)
     except Exception as e:
         print(Exception, e)

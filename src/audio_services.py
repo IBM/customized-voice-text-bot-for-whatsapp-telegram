@@ -7,7 +7,7 @@ from pathlib import Path
 from file_management import write_file, upload_file_cos
 from typing import Tuple
 
-# Load environment variables and setting up services
+# Load environment variables
 load_dotenv()
 
 # Define environment variables
@@ -25,7 +25,7 @@ text_to_speech = TextToSpeechV1(IAMAuthenticator(TTS_API_KEY))
 text_to_speech.set_service_url(TTS_SERVICE_URL)
 
 # Create application working directory
-DIRECTORY = 'temp'
+DIRECTORY = './temp'
 Path(DIRECTORY).mkdir(parents=True, exist_ok=True)
 
 def text_to_speech_synthesize(file_path: str, query: str) -> None:
