@@ -15,7 +15,7 @@ COS_ENDPOINT = os.getenv('COS_ENDPOINT')
 COS_INSTANCE_CRN = os.getenv('COS_INSTANCE_CRN')
 
 # Create application working directory
-DIRECTORY = 'temp'
+DIRECTORY = './temp'
 Path(DIRECTORY).mkdir(parents=True, exist_ok=True)
 
 cos = cos_resource('s3',

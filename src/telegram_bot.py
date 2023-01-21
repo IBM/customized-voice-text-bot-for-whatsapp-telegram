@@ -297,7 +297,7 @@ def main():
     dp.add_handler(MessageHandler(Filters.photo, handle_photo))
     dp.add_error_handler(error)
 
-    # On local run using ngrok, TELEGRAM_WEBHOOK_URL looks like https://xxxx-xxxx-xxx-xxxx.ngrok.io/
+    # On local run using ngrok, TELEGRAM_WEBHOOK_URL looks like https://xxxx-xxx-xxx-xx-xxx.ngrok.io/
     # Default port is 80
     updater.start_webhook(
         listen="0.0.0.0",
