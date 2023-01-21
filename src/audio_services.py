@@ -7,7 +7,7 @@ from pathlib import Path
 from file_management import write_file, upload_file_cos
 from typing import Tuple
 
-# Load environment variables and setting up services
+# Load environment variables
 load_dotenv()
 
 # Define environment variables
