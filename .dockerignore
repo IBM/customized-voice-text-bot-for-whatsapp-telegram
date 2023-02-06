@@ -23,3 +23,5 @@ venv/
 docs/
 skills_assistant/
 temp/
+*.rst
+*.md
