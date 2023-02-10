@@ -6,5 +6,5 @@ COPY src/ .
 EXPOSE 8080
 
 # Choose a bot application (WhatsApp or Telegram) and uncomment its respective line
-# CMD ["gunicorn", "-b", ":8080", "whatsapp:app"]   # WhatsApp Bot
-# CMD ["python3", "telegram_bot.py"]                # Telegram Bot
+CMD ["gunicorn", "-b", ":8080", "whatsapp:app"]
+# CMD ["python3", "telegram_bot.py"]
