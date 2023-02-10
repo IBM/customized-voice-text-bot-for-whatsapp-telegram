@@ -13,8 +13,7 @@ load_dotenv() # This is used to enable loading environment variables from the
 WA_API_KEY            = os.getenv('WA_API_KEY')
 WA_ID                 = os.getenv('WA_ID')
 WA_SERVICE_URL        = os.getenv('WA_SERVICE_URL')
-DEFAULT_ERROR_MESSAGE = str(
-    os.getenv('DEFAULT_ERROR_MESSAGE')).replace("_"," ")
+DEFAULT_ERROR_MESSAGE = str(os.getenv('WA_DEFAULT_ERROR_MESSAGE')).replace("_"," ")
 
 # Configuring and authenticating Watson Assistant
 assistant = AssistantV2(
