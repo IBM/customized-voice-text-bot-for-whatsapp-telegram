@@ -12,7 +12,7 @@ from redirect_request import redirect_request
 load_dotenv('./venv/master.env')
 
 # Define environment variables
-PORT                 = os.getenv('PORT')
+PORT                 = os.getenv('TELEGRAM_PORT')
 TELEGRAM_BOT_TOKEN   = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_WEBHOOK_URL = os.getenv('TELEGRAM_WEBHOOK_URL') # var must finish with /
 
