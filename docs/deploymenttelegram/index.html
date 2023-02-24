@@ -28,7 +28,6 @@
           <a href="../deploymenttelegram">Telegram </a><br>
           <a href="../deploymentwhatsapp">WhatsApp </a><br>
         </h4>
-        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
   
         <a href="../watsonservices"> Setup Watson Services</a><br>
         <a href="../datastorage"> Setup Data Storage</a><br>
@@ -133,9 +132,9 @@
 
         <p><a href="https://docs.docker.com/get-started/overview/">Docker</a> is a platform for "developing, shipping, and running applications." (Docker documentation). Docker containers give the ability to package an application and share it with others, without needing too much work on setting up environments. Containers can also run on a variety of environments, making it suitable for quickly deploying the chatbot on the cloud.</p>
         
-        <h4><strong>Verifying the Dockerfile application commandline</strong></h4>
+        <h4><strong>Verifying the Dockerfile configuration</strong></h4>
 
-        <p>Before proceeding, please ensure that the dockerfile is configured to run the Python application for Telegram as depicted in the image below. If the command line that runs the Telegram application is commented out, please uncomment it and comment out the command line that runs the WhatsApp application.</p>
+        <p>Before proceeding, please ensure that the <b>dockerfile is configured to run the Python application for Telegram as depicted in the image below</b>. If the command line that runs the Telegram application is commented out, please uncomment it and comment out the command line that runs the WhatsApp application.</p>
         <img src="../src/images/telegram_dockerfile.png"><br><br>
 
         <h4 id="-building-the-docker-image-"><strong>Building the Docker Image and pushing it to IBM Cloud Container Registry</strong></h4>
@@ -200,14 +199,19 @@
             <code>$ ibmcloud ce app update --name &lt;app-name&gt;  --env TELEGRAM_WEBHOOK_URL=&lt;paste URL&gt;</code>
 
           </ul>
-          <p>Congratulations! You have deployed the application to cloud. You now should be able to interact with the bot on Telegram. Yeeey!</p>
-
-          <p>The deployment can be made by <a href="https://cloud.ibm.com/" target="_blank">IBM Cloud console</a> if you prefer. In case of any problem, first stop your Code Engine application, then run it again. You can also view your application logs in the terminal, as <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli#cli-application-logs" target="_blank">this tutorial</a> shows.</p> 
-            
-          
+          <p>Congratulations! You have deployed the application to cloud. You now should be able to interact with the bot on Telegram. Yeeey! </p>
+          <p>You can monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create.</p>
+        
           <p>Of course, there should also be a working Watson Assistant dialog skill attached to your Watson Assistant assistant (that correlates with <code>WATSON_ASSISTANT_ID</code>) in order for you to receive sensible responses from the app.</p>
 
-          <p>You can also monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create.</p>
+          <p><u>Note:</u> The deployment can be made by <a href="https://cloud.ibm.com/" target="_blank">IBM Cloud console</a>, if you prefer. 
+
+
+          <h3>
+            <a id="handling-errors" class="anchor" href="#handling-errors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Handling Errors</strong>
+            </h3>
+
+            <p>In case of any problem with the deployed application, first stop the Code Engine application, then run it again. You can check the application logs in your terminal, as <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli#cli-application-logs" target="_blank">this tutorial</a> shows, to verify if any exception was raised or error occurred.</p> </p>
       </section>
       <footer>
         <p style="font-size:12px;">Project maintainers: <br><a target="_blank" rel="noopener" href="https://github.com/adinanabf">Adinan Brito Filho</a> <br><a target="_blank" rel="noopener" href="https://github.com/marcelo-grave">Marcelo Grave</a> <br><a target="_blank" rel="noopener" href="https://github.com/cassiasamp">Cássia Sampaio</a></p></p>

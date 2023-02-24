@@ -28,7 +28,6 @@
           <a href="../deploymenttelegram">Telegram </a><br>
           <a href="../deploymentwhatsapp">WhatsApp </a><br>
         </h4>
-        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
   
         <a href="../watsonservices"> Setup Watson Services</a><br>
         <a href="../datastorage"> Setup Data Storage</a><br>
@@ -177,18 +176,17 @@
   <p>With the to see a screen just like this one:</p>
   <img src="../src/images/whatsapp_sandbox.jpg" alt="See ../src/images/whatsapp_sandbox.jpg">
   <p>Then you should copy and paste your ngrok url in the box "WHEN A MESSAGE COMES IN". Append the path "/chatbot-message" to your ngrok url too - so the final url that goes in that box should be similar to <code>https://____.ngrok.io/chatbot-message</code>. All other settings can be left as the default.</p>
-  <p>After this is done, you now should be able run the app and send messages.<br>In the <code>src/</code> folder:</p>
+  <p>Now, in the <code>src/</code> folder:</p>
   <ol>
   <li>Mac/Linux - <code>$ gunicorn -b :8080 whatsapp:app</code> <br>Windows - <code>$ waitress-serve --listen=*:8080 whatsapp:app</code>
-  </li>
-  <li>Send the "join ..." message from your WhatsApp account to the Twilio number that you see on the sandbox page - you should see a sentence that looks like "Invite your friends to your Sandbox. Ask them to send a WhatsApp message to..."</li>
-  <li>If you refresh the sandbox page, you should see your number under "Sandbox Participants" on the sandbox page</li>
-  <li>If you go to the Overview page (Messaging -&gt; Overview), you should see message recorded under "Recent Messages".</li>
+  </li><br>
+  <li>Send the "join ..." message from your WhatsApp account to the Twilio number that you see on the sandbox page - you should see a sentence that looks like "Invite your friends to your Sandbox. Ask them to send a WhatsApp message to..."</li><br>
+  <li>If you refresh the sandbox page, you should see your number under "Sandbox Participants" on the sandbox page</li><br>
   </ol>
+  <p>After this is done, you now should be able to interact with the bot on WhatsApp. Yeeey!</p>
   
-  <p>You can monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create.</p>
+  <p>You can monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create. You can also view a reduced version of the conversation history in the Twilio Console, going to the Overview page (Messaging -&gt; Overview), under "Recent Messages".</p>
   <p>Of course, there should also be a working Watson Assistant dialog skill attached to your Watson Assistant assistant (that correlates with <code>WATSON_ASSISTANT_ID</code>) in order for you to receive sensible responses from the app.</p>
-  <p>There are helpful pages on the Twilio console that can help you to identify errors. We recommend you to explore Twilio Console and learn more about the process and the interaction between user and bot.</p>
   
   <p><strong>Important Note</strong>: If you terminate the ngrok process and run it again, you will have to update the ngrok url in the box "WHEN A MESSAGE COMES IN" on the Twilio Sandbox page - this is because ngrok creates a random url every time you run <code>$ ngrok http 8080</code>.</p>
   <h3>

@@ -28,7 +28,6 @@
           <a href="../deploymenttelegram">Telegram </a><br>
           <a href="../deploymentwhatsapp">WhatsApp </a><br>
         </h4>
-        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
   
         <a href="../watsonservices"> Setup Watson Services</a><br>
         <a href="../datastorage"> Setup Data Storage</a><br>
@@ -142,13 +141,10 @@
 
         <p><a href="https://docs.docker.com/get-started/overview/">Docker</a> is a platform for "developing, shipping, and running applications." (Docker documentation). Docker containers give the ability to package an application and share it with others, without needing too much work on setting up environments. Containers can also run on a variety of environments, making it suitable for quickly deploying the chatbot on the cloud.</p>
 
-        <h4><strong>Verifying the Dockerfile application commandline</strong></h4>
+        <h4><strong>Verifying the Dockerfile configuration</strong></h4>
 
-        <p>Before proceeding, please ensure that the dockerfile is configured to run the Python application for WhatsApp as depicted in the image below. If the command line that runs the WhatsApp application is commented out, please uncomment it and comment out the command line that runs the Telegram application.</p>
-        <img src="../src/images/telegram_dockerfile.png"><br><br>
-
-        <h4 id="-building-the-docker-image-"><strong>Building the Docker Image and pushing it to IBM Cloud Container Registry</strong></h4>
-        <p>With the previous steps being concluded successfully, open the terminal in the project main folder and execute the following commands:</p>
+        <p>Before proceeding, <b>please ensure that the dockerfile is configured to run the Python application for WhatsApp as depicted in the image below</b>. If the command line that runs the WhatsApp application is commented out, please uncomment it and comment out the command line that runs the Telegram application.</p>
+        <img src="../src/images/dockerfile_whatsapp.png"><br><br>
 
 
         <h4 id="-building-the-docker-image-"><strong>Building the Docker Image and pushing it to IBM Cloud Container Registry</strong></h4>
@@ -228,12 +224,23 @@
           <img src="../src/images/whatsapp_sandbox.jpg" alt="See ../src/images/whatsapp_sandbox.jpg"><br><br>
 
           <p>Then you should copy and paste your ngrok url in the box "WHEN A MESSAGE COMES IN". Append the path "/chatbot-message" to your url too - so the final url that goes in that box should be similar to <code>https://&lt;app-name&gt;.____.us-south.codeengine.appdomain.cloud/chatbot-message</code>. All other settings can be left as the default.</p>
-          <p>After this is done, you now should be able to interact with the bot on WhatsApp. Yeeey!</p>
           <p>To interact with the bot, send the Sandbox code from an WhatsApp account to the Sandbox number, avaliable in the same page you paste the application URL. Then, start talking to the machine by texting or recording a "Hi" or "Hey". </p>
-          <p>Of course, there should also be a working Watson Assistant dialog skill attached to your Watson Assistant assistant (that correlates with <code>WATSON_ASSISTANT_ID</code>) in order for you to receive sensible responses from the app.</p>
-          <p>There are helpful pages on the Twilio console that can help you to identify errors. We recommend you to explore Twilio Console and learn more about the process and the interaction between user and bot.</p>
 
-          <p>You can also monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create.</p>
+          <p>After this is done, you now should be able to interact with the bot on WhatsApp. Yeeey!</p>
+
+          <p>You can monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create. You can also view a reduced version of the conversation history in the Twilio Console, going to the Overview page (Messaging -&gt; Overview), under "Recent Messages".</p></p>
+
+          <p>Of course, there should also be a working Watson Assistant dialog skill attached to your Watson Assistant assistant (that correlates with <code>WATSON_ASSISTANT_ID</code>) in order for you to receive sensible responses from the app.</p>
+
+          <p><u>Note:</u> The deployment can be made by <a href="https://cloud.ibm.com/" target="_blank">IBM Cloud console</a>, if you prefer. 
+
+          <h3>
+            <a id="handling-errors" class="anchor" href="#handling-errors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Handling Errors</strong>
+            </h3>
+
+            <p>In case of any problem with the deployed application, first stop the Code Engine application, then run it again. You can check the application logs in your terminal, as <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli#cli-application-logs" target="_blank">this tutorial</a> shows, to verify if any exception was raised or error occurred.</p> </p>
+            <p>The code has try-except blocks in many places, so as to catch Twilio and Flask specific errors. Most errors should produce a debug output within the terminal. Some errors might be visible from the Twilio console, and Twilio might email you when errors occur.</p>
+        
       </section>
       <footer>
         <p style="font-size:12px;">Project maintainers: <br><a target="_blank" rel="noopener" href="https://github.com/adinanabf">Adinan Brito Filho</a> <br><a target="_blank" rel="noopener" href="https://github.com/marcelo-grave">Marcelo Grave</a> <br><a target="_blank" rel="noopener" href="https://github.com/cassiasamp">Cássia Sampaio</a></p></p>
