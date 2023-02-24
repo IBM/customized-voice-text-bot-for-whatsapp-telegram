@@ -20,20 +20,25 @@
         <p class="view"><a href="https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram">View the Project on GitHub <small>IBM/customized-voice-text-bot-for-whatsapp-telegram</small></a></p><br>
         <h3>Learn more about</h3>
         <h4>
-          <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/runninglocally/"> Running locally</a><br>
-          <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/deployment/"> Deploying to IBM Cloud</a><br>
+          Running locally<br>
+          <a href="../runninglocallytelegram">Telegram</a><br>
+          <a href="../runninglocallywhatsapp"> WhatsApp</a><br>
+          <div style="height:10px"></div>
+          Deploying to IBM Cloud and others<br>
+          <a href="../deploymenttelegram">Telegram </a><br>
+          <a href="../deploymentwhatsapp">WhatsApp </a><br>
         </h4>
         <!--<a href="./subpages/flask.html"> Flask</a><br>-->
-        <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/twilio/"> Setup Twilio</a><br>
-        <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/watsonservices/"> Setup Watson Services</a><br>
-        <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/datastorage/"> Setup Data Storage</a><br>
+  
+        <a href="../watsonservices"> Setup Watson Services</a><br>
+        <a href="../datastorage"> Setup Data Storage</a><br>
         <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-customIntro"> Customizing Text-to-Speech</a><br>
         <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-customization"> Customizing Speech-to-Text</a><br>
         <p></p><br>
       </header>
       <section>
         <h1>
-          <a id="title-page" class="anchor" href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Voice and Text Chatbot designed for WhatsApp and Telegram</a>
+          <a id="title-page" class="anchor" href="../" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Voice and Text Chatbot designed for WhatsApp and Telegram</a>
         </h1>
         <h2>Instructions for Deploying on IBM Cloud Code Engine</h2>
         <p>In this tutorial you will learn how to deploy our Python Flask bot app with Code Engine that uses an image located at Container Registry, a private repository for applications images. Please follow these following subsections in order, to deploy the app on Code Engine.</p>
@@ -49,7 +54,7 @@
         </li>
         <li><a href="https://www.twilio.com/try-twilio">Twilio account</a> (no credit card needed; comes with 15 USD credit)
           <ul>
-            <li>For more instructions about creating a Twilio account please refer to <a href="../twilio/index.html">this page</a>.</li>
+            <li><p>We have curated a page which contains detailed instructions on the process of creating a Twilio Sandbox. To access the page, kindly follow <a href="../twilio/">this link</a>.</p></li>
           </ul>
         </li>
         <li>IBM Cloud account (credit card required; no payment - all used services are free)</li>
@@ -119,8 +124,11 @@
           <sup>5</sup>A default message for reply to media unsupported. Spaces must be replaced by an underscore.<br>
           </ul>
         
-        <p>This is how the <code>.env</code> file should look like:</p>
+          <p>We have curated a page which contains detailed instructions on the process of creating a Twilio Sandbox account and obtaining the essential API keys. To access the page, kindly follow <a href="../twilio/">this link</a>.</p>
+
+          <p>The following image is an example of how the <code>.env</code> file should be formatted:</p>
         <img src="../src/images/capture_.env_file_v2.png"><br><br>
+
         <h3 id="-deploying-the-app-"><strong>Deploying the App</strong></h3>       
         <p>The following content will walk through deploying the app using the CLI. It is loosely based on this <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-deploy-app-private&locale=en">tutorial</a>. To facilitate the distribution of the application and it's deployment to Code Engine, it is <strong>strongly recommended</strong> to containerize the application source code together with all of the related configuration files, libraries, and dependencies required for it to run. <a href="https://www.ibm.com/topics/containerization">Access this IBM page</a> to find more information about containerization.</p>
         
@@ -190,8 +198,9 @@
           <p>Congratulations! You have deployed the application to cloud! <br>Ps: This process can be made by <a href="https://cloud.ibm.com/" target="_blank">IBM Cloud console</a> if you prefer.</p>
             
           <h3 id="-testing-the-app-"><strong>Configuring Twilio Sandbox and testing the bot</strong></h3>
+
             
-           It is time to configure Twilio Sandbox and test the bot. For this, open up <a href="https://console.twilio.com/" target="_blank">Twilio console</a>. </p>
+          <p>After completing the previous steps, we shall now proceed with configuring the Twilio Sandbox and testing the bot. For this, open up <a href="https://console.twilio.com/" target="_blank">Twilio console</a>. </p>
           <img src="../src/images/twilio_console.jpg" alt="See ../src/images/twilio_console.jpg"><br><br>
 
           <p>Then navigate to your WhatsApp Sandbox settings:</p>
