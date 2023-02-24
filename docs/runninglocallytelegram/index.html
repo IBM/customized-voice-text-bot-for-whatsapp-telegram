@@ -38,18 +38,15 @@
         <h2>
           <a id="instructions-for-running-locally" class="anchor" href="#instructions-for-running-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Instructions for Running Locally</strong>
         </h2>
-        <p>Please follow these following subsections in order, to run the app locally.</p>
+        <p>Please follow these following subsections in order, to run the Telegram Bot app locally.</p>
         <h3>
           <a id="necessary-components" class="anchor" href="#necessary-components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Necessary Components</strong>
         </h3>
         <p>To locally run the app successfully, please ensure that you have these components ready:</p>
         <ul>
-        <li>WhatsApp account</li><br>
-        <li><a href="https://www.twilio.com/try-twilio">Free Twilio account</a> (no credit card needed; comes with 15 USD credit)
-          <ul>
-            <li>For more instructions about creating a Twilio account please refer to <a href="../twilio/index.html">this page</a>.</li>
-          </ul>
-        </li>
+          <li>Telegram Bot API key and Telegram account
+            <ul><li>The API key is required for connecting the web app to Telegram. You can get more information on how to create a new bot account with BotFather <a href="https://blog.devgenius.io/how-to-set-up-your-telegram-bot-using-botfather-fd1896d68c02" target="_blank"> here</a>.<br> The account is required to test the bot after the deployment. </li></ul>
+          </li>
         <li>IBM Cloud account (credit card required; no payment - all used services are free)
         <ul>
         Create an instance for the <strong>free versions</strong> of the following services (you can select Dallas as the location):
@@ -71,7 +68,7 @@
         <h4>
           <a id="ngrok" class="anchor" href="#ngrok" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>ngrok</strong>
           </h4>
-          <p><a href="https://ngrok.com/product">ngrok</a> is a third-party software that can be used to expose "local servers to the public internet over secure tunnels" (ngrok documentation). In this specific context of our chatbot, we use Flask to create the web app that handles all of the messaging between Watson Assistant and WhatsApp users, but by default, Flask starts a local host to deploy the application. ngrok provides a random public url that can forward requests to a local host.</p>
+          <p><a href="https://ngrok.com/product">ngrok</a> is a third-party software that can be used to expose "local servers to the public internet over secure tunnels" (ngrok documentation). Basically, ngrok provides a random public url that can forward requests to a local host.</p>
           
         <h3>
         <a id="environment-set-up" class="anchor" href="#environment-set-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Environment Set-up</strong>
@@ -109,37 +106,37 @@
     STT, TTS, Watson Assistant, COS and Cloudant API keys can be found on the IBM Cloud website (by going to Resource List and then opening each service). For the Watson Assistant ID, you first have to launch Watson Assistant (this can be done from the resource list) and create an assistant. After that, under Assistant Settings the assistant ID will be there.</p>
   <p>These are the API keys that you will need to run the app:</p>
   <ul>
-    <li>TWILIO_ACCOUNT_SID <sup>1</sup></li>
-    <li>TWILIO_AUTH_TOKEN <sup>1</sup></li>
-    <li>TWILIO_SANDBOX_NUMBER <sup>2</sup></li>
-    <li>WA_API_KEY <sup>3</sup></li> 
-    <li>WA_ID <sup>3</sup></li> 
-    <li>WA_SERVICE_URL <sup>3</sup></li> 
-    <li>COS_API_KEY_ID <sup>4</sup></li>
-    <li>COS_BUCKET <sup>4</sup></li>
-    <li>COS_BUCKET_LINK <sup>4</sup></li>
-    <li>COS_ENDPOINT <sup>4</sup></li>
-    <li>COS_INSTANCE_CRN <sup>4</sup></li>
-    <li>IBM_CLOUDANT_URL <sup>4</sup></li>
-    <li>IBM_CLOUDANT_APIKEY <sup>4</sup></li>
-    <li>IBM_CLOUDANT_DATABASE <sup>4</sup> </li>
-    <li>STT_API_KEY <sup>3</sup></li>
-    <li>STT_SERVICE_URL <sup>3</sup></li>
-    <li>STT_MODEL <sup>3</sup></li>
-    <li>TTS_API_KEY <sup>3</sup></li>
-    <li>TTS_DEFAULT_VOICE <sup>3</sup></li>
-    <li>TTS_SERVICE_URL <sup>3</sup></li>
-    <li>DEFAULT_ERROR_MESSAGE <sup>5</sup></li>
-      <br>
-    <sup>1</sup>Avaliable on <a href="https://console.twilio.com/?frameUrl=/console" target="_blank">Twilio Console</a><br>
-    <sup>2</sup>Avaliable on <a href="https://console.twilio.com/us1/develop/sms/settings/whatsapp-sandbox?frameUrl=%2Fconsole%2Fsms%2Fwhatsapp%2Fsandbox%3Fx-target-region%3Dus1" target="_blank">Twilio Sandbox Settings</a><br>
-    <sup>3</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/watsonservices/"> Watson Services page</a><br>
-    <sup>4</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/datastorage/"> Data Storage page</a><Br>
-    <sup>5</sup>A default message for reply to media unsupported. Spaces must be replaced by an underscore.<br>
-  </ul>
+    <li>COS_API_KEY_ID <sup>1</sup></li>
+    <li>COS_BUCKET_LINK <sup>1</sup></li>
+    <li>COS_BUCKET <sup>1</sup></li>
+    <li>COS_ENDPOINT <sup>1</sup></li>
+    <li>COS_INSTANCE_CRN <sup>1</sup></li>
+    <li>IBM_CLOUDANT_APIKEY <sup>1</sup></li>
+    <li>IBM_CLOUDANT_DATABASE <sup>1</sup></li>
+    <li>IBM_CLOUDANT_URL <sup>1</sup></li>
+    <li>STT_API_KEY <sup>2</sup></li>
+    <li>STT_LANGUAGE <sup>2</sup></li>
+    <li>STT_MODEL <sup>2</sup></li>
+    <li>STT_SERVICE_URL <sup>2</sup></li>
+    <li>TELEGRAM_BOT_TOKEN <sup>3</sup></li>
+    <li>TELEGRAM_PORT <sup>3</sup></li>
+    <li>TELEGRAM_WEBHOOK_URL <sup>3</sup></li>
+    <li>TTS_API_KEY <sup>2</sup></li>
+    <li>TTS_DEFAULT_VOICE <sup>2</sup></li>
+    <li>TTS_SERVICE_URL <sup>2</sup></li>
+    <li>WA_API_KEY <sup>2</sup></li> 
+    <li>WA_DEFAULT_ERROR_MESSAGE <sup>2</sup></li> 
+    <li>WA_ID <sup>2</sup></li> 
+    <li>WA_SERVICE_URL <sup>2</sup></li> 
+     <br>
+    <sup>1</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/datastorage/"> Data Storage page</a><Br>
+    <sup>2</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/watsonservices/"> Watson Services page</a><br>
+    <sup>3</sup>The Bot Token is given by BotFather when creating a new bot (<a href="https://blog.devgenius.io/how-to-set-up-your-telegram-bot-using-botfather-fd1896d68c02" target="_blank">refer here</a>).<br>The TELEGRAM_PORT value is the port that the deployed app listen for incoming connections, by default is 8080.<br>The TELEGRAM_WEBHOOK_URL is your web application main address, with a backslash in the end. <br>
+    </ul>
+  
+  <p>This is how the <code>.env</code> file should look like - without the variables values, of course:</p>
+  <img src="../src/images/envs_telegram.png"><br><br>
 
-  <p>This is how the <code>.env</code> file should look like:</p>
-        <img src="../src/images/capture_.env_file_v2.png"><br><br>
   <h3>
   <a id="running-the-app" class="anchor" href="#running-the-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Running the App</strong>
   </h3>
@@ -152,38 +149,23 @@
   </ul>
   <p>After this, an ngrok interface, similar to this, should appear:</p>
   <img src="../src/images/ngrok_interface.jpg" alt="See ../src/images/ngrok_interface.jpg">
-  <p>There would be two "Forwarding" sections of the interface - you can copy the <code>http://____.ngrok.io</code> url, and you would store this as <code>URL</code> in your .env file.</p>
-  <p>After this, you would open up the Twilio console:</p>
-  <img src="../src/images/twilio_console.jpg" alt="See ../src/images/twilio_console.jpg">
-  <p>Then navigate to your WhatsApp Sandbox settings:</p>
-  <ol>
-  <li>Messaging</li>
-  <li>Settings</li>
-  <li>WhatsApp sandbox settings</li>
-  </ol>
-  <p>You should be able to see a screen just like this one:</p>
-  <img src="../src/images/whatsapp_sandbox.jpg" alt="See ../src/images/whatsapp_sandbox.jpg">
-  <p>Then you should copy and paste your ngrok url in the box "WHEN A MESSAGE COMES IN". Append the path "/chatbot-message" to your ngrok url too - so the final url that goes in that box should be similar to <code>http://____.ngrok.io/chatbot-message</code>. All other settings can be left as the default.</p>
-  <p>After this is done, you now should be able run the app and send messages.<br>In the <code>src/</code> folder:</p>
-  <ol>
-  <li>Mac/Linux - <code>$ gunicorn -b :8080 whatsapp:app</code> <br>Windows - <code>$ waitress-serve --listen=*:8080 whatsapp:app</code>
-  </li>
-  <li>Send the "join ..." message from your WhatsApp account to the Twilio number that you see on the sandbox page - you should see a sentence that looks like "Invite your friends to your Sandbox. Ask them to send a WhatsApp message to..."</li>
-  <li>If you refresh the sandbox page, you should see your number under "Sandbox Participants" on the sandbox page</li>
-  <li>If you go to the Overview page (Messaging -&gt; Overview), you should see message recorded under "Recent Messages".</li>
-  </ol>
+  <p>There would be two "Forwarding" sections of the interface - you can copy the <code>https://____.ngrok.io/</code> url, and store this as <code>TELEGRAM_WEBHOOK_URL</code> in your .env file.</p>
+  
+  <p>After this is done you are prepared to run the app and send messages.</p>
+  <p>It is time to run the application. In the <code>src/</code> folder:</p>
+  <ul><li>Mac/Linux/Windows <code>$ python3 telegram_bot.py </code></li></ul>
+
+  <p>Congratulations! The application is ready to receive requests. You now should be able to interact with the bot on Telegram. Yeeey!</p>
   
   <p>You can monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create.</p>
   <p>Of course, there should also be a working Watson Assistant dialog skill attached to your Watson Assistant assistant (that correlates with <code>WATSON_ASSISTANT_ID</code>) in order for you to receive sensible responses from the app.</p>
-  <p>There are helpful pages on the Twilio console that can help you to identify errors. We recommend you to explore Twilio Console and learn more about the process and the interaction between user and bot.</p>
   
-  <p><strong>Important Note</strong>: If you terminate the ngrok process and run it again, you will have to update the ngrok url in the box "WHEN A MESSAGE COMES IN" on the Twilio Sandbox page - this is because ngrok creates a random url every time you run <code>$ ngrok http 8080</code>.</p>
   <h3>
   <a id="handling-errors" class="anchor" href="#handling-errors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Handling Errors</strong>
   </h3>
-  <p>The code has try-except blocks in many places, so as to catch Twilio and Flask specific errors. Most errors should produce a debug output within the terminal. Some errors might be visible from the Twilio console, and Twilio might email you when errors occur.</p>
-  <p>When errors occur, a good first step is to identify if it has do with the path that Twilio is forwarding messages too. If it is, the ngrok interface should show error codes of 4XX. If it is not, it is likely that the error occurred within the Flask app.</p>
-        </section>
+  <p>The code has try-except blocks in many places, so as to catch specific errors from the services. Most errors should produce a debug output within the terminal.</p>
+  
+</section>
       <footer>
         <p style="font-size:12px;">Project maintainers: <br><a target="_blank" rel="noopener" href="https://github.com/adinanabf">Adinan Brito Filho</a> <br><a target="_blank" rel="noopener" href="https://github.com/marcelo-grave">Marcelo Grave</a> <br><a target="_blank" rel="noopener" href="https://github.com/cassiasamp">Cássia Sampaio</a></p></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>

@@ -152,7 +152,7 @@
   </ul>
   <p>After this, an ngrok interface, similar to this, should appear:</p>
   <img src="../src/images/ngrok_interface.jpg" alt="See ../src/images/ngrok_interface.jpg">
-  <p>There would be two "Forwarding" sections of the interface - you can copy the <code>http://____.ngrok.io</code> url, and you would store this as <code>URL</code> in your .env file.</p>
+  <p>There would be two "Forwarding" sections of the interface - you can copy the <code>https://____.ngrok.io</code> url.</p>
   <p>After this, you would open up the Twilio console:</p>
   <img src="../src/images/twilio_console.jpg" alt="See ../src/images/twilio_console.jpg">
   <p>Then navigate to your WhatsApp Sandbox settings:</p>
@@ -163,7 +163,7 @@
   </ol>
   <p>You should be able to see a screen just like this one:</p>
   <img src="../src/images/whatsapp_sandbox.jpg" alt="See ../src/images/whatsapp_sandbox.jpg">
-  <p>Then you should copy and paste your ngrok url in the box "WHEN A MESSAGE COMES IN". Append the path "/chatbot-message" to your ngrok url too - so the final url that goes in that box should be similar to <code>http://____.ngrok.io/chatbot-message</code>. All other settings can be left as the default.</p>
+  <p>Then you should copy and paste your ngrok url in the box "WHEN A MESSAGE COMES IN". Append the path "/chatbot-message" to your ngrok url too - so the final url that goes in that box should be similar to <code>https://____.ngrok.io/chatbot-message</code>. All other settings can be left as the default.</p>
   <p>After this is done, you now should be able run the app and send messages.<br>In the <code>src/</code> folder:</p>
   <ol>
   <li>Mac/Linux - <code>$ gunicorn -b :8080 whatsapp:app</code> <br>Windows - <code>$ waitress-serve --listen=*:8080 whatsapp:app</code>

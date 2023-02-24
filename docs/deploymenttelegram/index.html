@@ -36,7 +36,9 @@
           <a id="title-page" class="anchor" href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Voice and Text Chatbot designed for WhatsApp and Telegram</a>
         </h1>
         <h2>Instructions for Deploying on IBM Cloud Code Engine</h2>
-        <p>In this tutorial you will learn how to deploy our Python Flask bot app with Code Engine that uses an image located at Container Registry, a private repository for applications images. Please follow these following subsections in order, to deploy the app on Code Engine.</p>
+        <p>In this tutorial you will learn how to deploy our Python Flask bot app to IBM Cloud Code Engine, a PaaS that uses an image located at Container Registry, a private repository for applications images. Please follow these following subsections in order to deploy the app.</p>
+        <p><strong>Reminder: Deploying on IBM Cloud is a suggestion. You may deploy this application on any cloud application platform using either the source code or the Docker image generated in this tutorial.</strong></p><br>
+
         <h3>Code Engine Overview</h3>
         <p>Code Engine (CE) is a PaaS (Platform as a Service) that attempts to make cloud deployment simple, when compared to using virtual machines. As you will see in this page, the process of deploying an app on Code Engine is not too long. CE handles and hides all cluster provisioning, configuring, scaling, and managing servers. Also, CE auto-scales workloads up/down or to zero when no requests are active. </p> 
         <p> This tutorial will take you through the deployment process, which will be done mostly with the IBM Cloud CLI (Command Line Interface), while using the IBM Cloud console to check the work. Code Engine has a <b>free usage amount</b> that should let us deploy the chatbot for testing purposes. <a href="https://cloud.ibm.com/docs/codeengine" target="_blank">This</a> is the official CE documentation. <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli" target="_blank">This</a> is the documentation for specifc CE commands using the IBM Cloud CLI.</p>
@@ -114,7 +116,7 @@
           <sup>3</sup>The Bot Token is given by BotFather when creating a new bot (<a href="https://blog.devgenius.io/how-to-set-up-your-telegram-bot-using-botfather-fd1896d68c02" target="_blank">refer here</a>).<br>The TELEGRAM_PORT value is the port that the deployed app listen for incoming connections, by default is 8080.<br>The TELEGRAM_WEBHOOK_URL is your web application main address, with a backslash in the end. <br>
           </ul>
         
-        <p>This is how the <code>.env</code> file should look like:</p>
+        <p>This is how the <code>.env</code> file should look like - without the variables values, of course:</p>
         <img src="../src/images/envs_telegram.png"><br><br>
         <h3 id="-deploying-the-app-"><strong>Deploying the App</strong></h3>       
         <p>The following content will walk through deploying the app using the CLI. It is loosely based on this <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-deploy-app-private&locale=en">tutorial</a>. To facilitate the distribution of the application and it's deployment to Code Engine, it is <strong>strongly recommended</strong> to containerize the application source code together with all of the related configuration files, libraries, and dependencies required for it to run. <a href="https://www.ibm.com/topics/containerization">Access this IBM page</a> to find more information about containerization.</p>
@@ -123,8 +125,13 @@
         <h4>Docker Overview</h4>
 
         <p><a href="https://docs.docker.com/get-started/overview/">Docker</a> is a platform for "developing, shipping, and running applications." (Docker documentation). Docker containers give the ability to package an application and share it with others, without needing too much work on setting up environments. Containers can also run on a variety of environments, making it suitable for quickly deploying the chatbot on the cloud.</p>
+        
+        <h4><strong>Verifying the Dockerfile application commandline</strong></h4>
+
+        <p>Before proceeding, please ensure that the dockerfile is configured to run the Python application for Telegram as depicted in the image below. If the command line that runs the Telegram application is commented out, please uncomment it and comment out the command line that runs the WhatsApp application.</p>
+        <img src="../src/images/telegram_dockerfile.png"><br><br>
+
         <h4 id="-building-the-docker-image-"><strong>Building the Docker Image and pushing it to IBM Cloud Container Registry</strong></h4>
-        <p></p>
         <p>With the previous steps being concluded successfully, open the terminal in the project main folder and execute the following commands:</p>
         <ul>
           <li>Login into IBM Cloud<br>
@@ -170,40 +177,28 @@
             <li>Open the .txt file and copy the <code>apikey</code> value from the json.</li><br>
 
             <li>Select the working project on Code Engine </li>
-            <code>$ ibmcloud ce proj select -name &lt;proj-name&gt;</code><br><br>
+            <code>$ ibmcloud ce proj select --name &lt;proj-name&gt;</code><br><br>
 
             <li>Create the Registry access on Code Engine</li>
             <code>$ ibmcloud ce registry create --name &lt;registry-access&gt; --server &lt;registry-address&gt; --username iamapikey --password &lt;paste apikey&gt;</code><br>
-            <font style="font-size: 12px;">This step enables Code Engine to access the private image that was stored at Container Registry.<br>The registry name must consist of lower case alphanumeric characters, '-' and must start and end with an alphanumeric character.</font><br><br>
+            <font style="font-size: 12px;">This step enables Code Engine to access the private image that was stored at Container Registry and is <b>only necessary for the first application deployment to Code Engine</b>.<br>The registry name must consist of lower case alphanumeric characters, '-' and must start and end with an alphanumeric character.</font><br><br>
 
-            <li>Create the application on Code Engine</li>
-            <code>$ ibmcloud ce app create --n &lt;app-name&gt;  --image &lt;image-link&gt; --registry-secret &lt;registry-access&gt;</code><br><br>
+            <li>Create the web application on Code Engine</li>
+            <code>$ ibmcloud ce app create --name &lt;app-name&gt;  --image &lt;image-link&gt; --registry-secret &lt;registry-access&gt;</code><br><br>
 
-            <li>Get the application link</li>
-            <code>$ ibmcloud ce app get -n &lt;app-name&gt; -output url</code>
+            <li>Get the web application webhook URL</li>
+            <code>$ ibmcloud ce app get --name &lt;app-name&gt; --output url</code><br><br>
+            
+            <li>Update the webhook URL in the Python's virtual environment env file</li>
+            <code>$ ibmcloud ce app update --name &lt;app-name&gt;  --env TELEGRAM_WEBHOOK_URL=&lt;paste URL&gt;</code>
 
           </ul>
-          <p>Congratulations! You have deployed the application to cloud! <br>Ps: This process can be made by <a href="https://cloud.ibm.com/" target="_blank">IBM Cloud console</a> if you prefer.</p>
-            
-          <h3 id="-testing-the-app-"><strong>Configuring Twilio Sandbox and testing the bot</strong></h3>
-            
-           It is time to configure Twilio Sandbox and test the bot. For this, open up <a href="https://console.twilio.com/" target="_blank">Twilio console</a>. </p>
-          <img src="../src/images/twilio_console.jpg" alt="See ../src/images/twilio_console.jpg"><br><br>
+          <p>Congratulations! You have deployed the application to cloud. You now should be able to interact with the bot on Telegram. Yeeey!</p>
 
-          <p>Then navigate to your WhatsApp Sandbox settings:</p>
-          <ol>
-            <li>Messaging</li>
-            <li>Settings</li>
-            <li>WhatsApp sandbox settings</li>
-          </ol>
-          <p>You should be able to see a screen just like this one:</p>
-          <img src="../src/images/whatsapp_sandbox.jpg" alt="See ../src/images/whatsapp_sandbox.jpg"><br><br>
-
-          <p>Then you should copy and paste your ngrok url in the box "WHEN A MESSAGE COMES IN". Append the path "/chatbot-message" to your url too - so the final url that goes in that box should be similar to <code>https://&lt;app-name&gt;.____.us-south.codeengine.appdomain.cloud/chatbot-message</code>. All other settings can be left as the default.</p>
-          <p>After this is done, you now should be able to interact with the bot on WhatsApp. Yeeey!</p>
-          <p>To interact with the bot, send the Sandbox code from an WhatsApp account to the Sandbox number, avaliable in the same page you paste the application URL. Then, start talking to the machine by texting or recording a "Hi" or "Hey". </p>
+          <p>The deployment can be made by <a href="https://cloud.ibm.com/" target="_blank">IBM Cloud console</a> if you prefer. In case of any problem, first stop your Code Engine application, then run it again. You can also view your application logs in the terminal, as <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli#cli-application-logs" target="_blank">this tutorial</a> shows.</p> 
+            
+          
           <p>Of course, there should also be a working Watson Assistant dialog skill attached to your Watson Assistant assistant (that correlates with <code>WATSON_ASSISTANT_ID</code>) in order for you to receive sensible responses from the app.</p>
-          <p>There are helpful pages on the Twilio console that can help you to identify errors. We recommend you to explore Twilio Console and learn more about the process and the interaction between user and bot.</p>
 
           <p>You can also monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create.</p>
       </section>
