@@ -40,16 +40,18 @@
         <h1>
           <a id="title-page" class="anchor" href="../" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Voice and Text Chatbot designed for WhatsApp and Telegram</a>
         </h1>
-        <h2>Instructions for Deploying on IBM Cloud Code Engine</h2>
-        <p>In this tutorial you will learn how to deploy our Python Flask bot app to IBM Cloud Code Engine, a PaaS that uses an image located at Container Registry, a private repository for applications images. Please follow these following subsections in order to deploy the app.</p>
-        <p><strong>Reminder: Deploying on IBM Cloud is a suggestion. You may deploy this application on any cloud application platform using either the source code or the Docker image generated in this tutorial.</strong></p><br>
+        <h2>Instructions for Deploying the Telegram Bot Web App to IBM Cloud Code Engine</h2>
 
-        <h3>Code Engine Overview</h3>
-        <p>Code Engine (CE) is a PaaS (Platform as a Service) that attempts to make cloud deployment simple, when compared to using virtual machines. As you will see in this page, the process of deploying an app on Code Engine is not too long. CE handles and hides all cluster provisioning, configuring, scaling, and managing servers. Also, CE auto-scales workloads up/down or to zero when no requests are active. </p> 
-        <p> This tutorial will take you through the deployment process, which will be done mostly with the IBM Cloud CLI (Command Line Interface), while using the IBM Cloud console to check the work. Code Engine has a <b>free usage amount</b> that should let us deploy the chatbot for testing purposes. <a href="https://cloud.ibm.com/docs/codeengine" target="_blank">This</a> is the official CE documentation. <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli" target="_blank">This</a> is the documentation for specifc CE commands using the IBM Cloud CLI.</p>
+        <p>In this tutorial you will learn how to deploy the Telegram Bot Web App to IBM Cloud Code Engine. To ensure successful deployment of the application, please follow the subsections below in the specified order.</p>
+        <p><strong>Reminder: Deploying on IBM Cloud is a suggestion. You may deploy this application on any cloud application platform using either the source code or the Docker image generated in this tutorial.</strong></p>
+        <h3>IBM Cloud Code Engine Overview</h3>
+        <p>Code Engine (CE) is a PaaS (Platform as a Service) to deploy applications to the cloud with ease and without the need to manage the underlying infrastructure. Code Engine automatically scales applications based on demand and provides built-in integrations with other IBM Cloud services. Code Engine has a <b>free usage amount</b> that should let us deploy the chatbot for testing purposes.</p> 
+
+        
+        <p> This tutorial will take you through the deployment process, which will be done mostly with the IBM Cloud CLI (Command Line Interface). For more information you can visit the <a href="https://cloud.ibm.com/docs/codeengine" target="_blank">official CE documentation</a> and the <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli" target="_blank">documentation for CE plugin in IBM Cloud CLI</a>.</p>
         
         <h3 id="-necessary-components-"><strong>Necessary Components</strong></h3>
-        <p>To deploy the app successfully, please ensure that you have these components ready:</p>
+        <p>To proceed in this tutorial, kindly ensure that you have the following components:</p>
         <ul>
         <li>Telegram Bot API key and Telegram account
           <ul><li>The API key is required for connecting the web app to Telegram. You can get more information on how to create a new bot account with BotFather <a href="https://blog.devgenius.io/how-to-set-up-your-telegram-bot-using-botfather-fd1896d68c02" target="_blank"> here</a>.<br> The account is required to test the bot after the deployment. </li></ul>
@@ -67,8 +69,8 @@
           <li style="margin-left:2em;"><a href="https://cloud.ibm.com/codeengine/projects" target="_blank">Code Engine</a></li>
           
         </ul>
-        <li><a href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started">IBM Cloud CLI</a> downloaded and installed</li>
-        <li><a href="https://www.docker.com/products/docker-desktop/" target="_blank">Docker Desktop</a> (or Podman Desktop) downloaded and installed</li>
+        <li><a href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started">IBM Cloud CLI</a> installed</li>
+        <li><a href="https://www.docker.com/products/docker-desktop/" target="_blank">Docker Desktop</a> (or Podman Desktop) installed</li>
         </ul>
         <h3 id="-environment-set-up-"><strong>Environment Set-up</strong></h3>
         <p>Cloning this repository should take care of the files and folders set-up. Locally, you need to create a virtual environment (venv), install the requirements, and set up a <code>.env</code> file in the folder <code>src/</code>.</p>
