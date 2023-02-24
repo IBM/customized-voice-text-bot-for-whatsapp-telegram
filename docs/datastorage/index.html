@@ -53,7 +53,7 @@
         <p>Cloudant is a document-oriented NoSQL database-as-a-service offered on the IBM Cloud (<a target="_blank" href="https://cloud.ibm.com/docs/Cloudant">Cloudant documentation</a>). </p>
         <p>In this project, Cloudant stores the bot's conversation history with WA session IDs, timestamps and links to media sent by the user and the bot. The document ID in the DB is the <strong>encrypted user mobile number</strong>. You can edit the Python script to remove the cryptography if you want.</p>
 
-        <p>Below, we listed the environment variables (env vars) necessary for enabling our app to make requests to the Cloudant API:</p>
+        <p>Listed below are the environment variables (env vars) required to enable our application to make requests to the Cloudant API:</p>
 
         <ol>
           <li>IBM_CLOUDANT_APIKEY</li>
@@ -61,14 +61,14 @@
           <li>IBM_CLOUDANT_DATABASE</li>
         </ol>
 
-        <p>You can find more information about STT API <a href="https://cloud.ibm.com/apidocs/cloudant" target="_blank">here</a>.</p>
+        <p>You can find more information about the Cloudant API <a href="https://cloud.ibm.com/apidocs/cloudant" target="_blank">here</a>.</p>
 
-        <h4>Obtaining Cloudant environment variables</h4>
+        <h4>Obtaining the Cloudant environment variables</h4>
 
         <ol>
           <b><li>Obtaining Cloudant API key & URL</li></b>
           <p>On IBM Cloud, after creating a Cloudant lite instance, go to resource list and search for your created instace and click on it. Then, click on 'service credentials', a screen like the image below should appear: </p>
-          <img src="../src/images/cloudant_api_1.png">
+          <img src="../src/images/cloudant_api_1.png"><Br><br>
           <p>On that screen, click on 'new credential', a pop-up will appear:
           <img src="../src/images/cloudant_api_2.png"><br>
           Choose the <strong>Manager</strong> role then click Add. After, open the created credential and copy the <code>apikey</code> value and the <code>url</code> value and paste in your <code>.env</code> file.</p>
@@ -79,10 +79,63 @@
             Choose a name for your database and write in the box. Then, select 'non-partitioned' and click on 'Create'. Done, your DB were created. Now, on the <code>.env</code> file, assign to <code>IBM_CLOUDANT_DATABASE</code> var the database name you chose.
           </p>
         </ol>
-        <p><p>To access database contents, access the IBM Cloud website, go to the resource list, open the created Cloudant instance, click on 'launch dashboard' and click on your database.</p></p>
+        <p>To access database contents, access the IBM Cloud website, go to the resource list, open the created Cloudant instance, click on 'launch dashboard' and click on your database.</p><br>
         
         <h3>IBM Cloud Object Storage</h3>
         <p>IBM Cloud Object Storage (COS) is a highly available, durable, and secure platform for storing unstructured data. Unstructured data [...] refers to data that is not highly structured in the manner of a database. Object storage is the most efficient way to store PDFs, media files, database backups, disk images, or even large structured datasets <a href="https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage" target="_blank">(COS documentation)</a>.</p>
+
+        <p>In this project, IBM Cloud Object Storage is utilized to store binary files generated from bot interactions with users, such as media files (e.g. images and audio files).</p>
+
+        <p>Listed below are the environment variables (env vars) required to enable our application to make requests to the COS API:</p>
+
+        <ol>
+          <li>COS_API_KEY_ID</li>
+          <li>COS_BUCKET</li>
+          <li>COS_BUCKET_LINK</li>
+          <li>COS_ENDPOINT</li>
+          <li>COS_INSTANCE_CRN</li>
+        </ol>
+
+        <p>You can find more information about the COS API <a href="https://cloud.ibm.com/apidocs/cloudant" target="_blank">here</a>.</p>
+        
+        <h4>Obtaining the COS environment variables</h4>
+
+        <ol>
+          <b><li>Obtaining <code>COS_API_KEY_ID</code></li></b>
+          <p>On IBM Cloud, after creating a Object Storage Lite plan instance, go to resource list, search for your created instace and click on it. Then, click on 'service credentials', a screen like the image below should appear: </p>
+          <img src="../src/images/cos_doc_1.png"><br><br>
+          <p>On that screen, click on 'New credential', a pop-up will appear:
+          <img src="../src/images/cos_doc_2.png"><br>
+          Choose the <strong>Manager</strong> role then click Add. After, open the created credential and copy the <code>apikey</code> value and paste in your <code>.env</code> file as the value for the <code>COS_API_KEY_ID</code> variable.</p>
+
+          <b><li>Obtaining <code>COS_BUCKET</code></li></b>
+          <p>The value for the <code>COS_BUCKET</code> env var is the name of the bucket. To create a bucket, go to the bucket page by clicking in the button on left, and then click on "<b>Create bucket</b>".<br>Then, choose "<b>Customize your bucket</b>". In the new screen, write the name of your bucket and set the following configurations, as the image below shows:</p>
+          <center></center>
+          <p>Resiliency: Regional<br>Location: us-south<br>Storage class: standard</p> 
+          <img src="../src/images/cos_doc_3.png"><br><br>
+          <p>And create the bucket by clicking in the button "<b>Create bucket</b>". Do not forget to write the name of your bucket as the value for the env var <code>COS_BUCKET</code> in the .env file.</p>
+
+
+          <b><li>Obtaining <code>COS_BUCKET_LINK</code></li></b>
+          <p>To obtain this value, we need to change the Policy Access of the bucket. For this, enter into the bucket page you have created before, click on the tab "<b>Permissions</b>", then open the tab "<b>Public Access</b>" and set the role "<b>Object reader</b>" for the bucket. The image below show this screen and the configuration.</p>
+          <p>If the tab "<b>Public Access</b>" are not visible for you, please folow <a href="https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-iam-bucket-permissions&interface=ui#iam-policy-enforcement-console" target="_blank"> this tutorial</a> to create a new access policy for your IBM Cloud account.</p>
+
+          <img src="../src/images/cos_doc_4.png"> <br><br>
+          
+          <p>After creating the access policy for your bucket, go back to the buckets main page. On the new screen, as the image below shows, click on the button in the right to your bucket, then click on "<b>Public URL</b>" and the URL that is shown to you. Paste the content as the value for the <code>COS_BUCKET_LINK</code> var in the .env file.</p>
+          <img src="../src/images/cos_doc_5.png"> <br><br>
+
+
+          <b><li>Obtaining <code>COS_ENDPOINT</code></li></b>
+          <p>Enter on your bucket page, then click on the tab "<b>Configurations</b>". Then, scroll down to the "<b>Endpoint</b>" section and copy the public URL, as the image below shows. Then, paste the content as the value to the <code>COS_ENDPOINT</code> var in the .env file.</p>
+          <img src="../src/images/cos_doc_6.png"><br><br>
+
+          <b><li>Obtaining <code>COS_INSTANCE_CRN</code></li></b>
+          <p>In the same page as the previous item, scroll up to the "<b>Bucket detail</b>" section and copy the "<b>Bucket Instance CRN</b>" value that is shown to you. Paste the content as the value for the <code>COS_INSTANCE_CRN</code> var in the .env file.</p>
+            </ol>
+        <p>To access the files stored in the COS bucket, launch the bucket page contents and click on the "<b>Objects</b>" tab. Then, select the object you wish to open, copy the Object Public URL, and use it to access and download the file.</p><br>
+
+
 
       </section>
       <footer>
@@ -90,6 +143,8 @@
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+
+
     <script src="../src/javascripts/scale.fix.js"></script>
     
   </body>
