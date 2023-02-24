@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Customized voice-text bot for WhatsApp and Telegram</title>
+
+    <link rel="stylesheet" href="../src/stylesheets/styles.css">
+    <link rel="stylesheet" href="../src/stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h2>IBM Research</h2>
+
+        <p class="view"><a href="https://github.com/IBM/customized-voice-text-bot-for-whatsapp-telegram">View the Project on GitHub <small>IBM/customized-voice-text-bot-for-whatsapp-telegram</small></a></p><br>
+        <h3>Learn more about</h3>
+        <h4>
+          <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/runninglocally/"> Running locally</a><br>
+          <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/deployment/"> Deploying to IBM Cloud</a><br>
+        </h4>
+        <!--<a href="./subpages/flask.html"> Flask</a><br>-->
+        <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/twilio/"> Setup Twilio</a><br>
+        <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/watsonservices/"> Setup Watson Services</a><br>
+        <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/datastorage/"> Setup Data Storage</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-customIntro"> Customizing Text-to-Speech</a><br>
+        <a target="_blank" rel="noopener" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-customization"> Customizing Speech-to-Text</a><br>
+        <p></p><br>
+      </header>
+      <section>
+        <h1>
+          <a id="title-page" class="anchor" href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/" style="color:#222" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Voice and Text Chatbot designed for WhatsApp and Telegram</a>
+        </h1>
+        <h2>Instructions for Deploying on IBM Cloud Code Engine</h2>
+        <p>In this tutorial you will learn how to deploy our Python Flask bot app with Code Engine that uses an image located at Container Registry, a private repository for applications images. Please follow these following subsections in order, to deploy the app on Code Engine.</p>
+        <h3>Code Engine Overview</h3>
+        <p>Code Engine (CE) is a PaaS (Platform as a Service) that attempts to make cloud deployment simple, when compared to using virtual machines. As you will see in this page, the process of deploying an app on Code Engine is not too long. CE handles and hides all cluster provisioning, configuring, scaling, and managing servers. Also, CE auto-scales workloads up/down or to zero when no requests are active. </p> 
+        <p> This tutorial will take you through the deployment process, which will be done mostly with the IBM Cloud CLI (Command Line Interface), while using the IBM Cloud console to check the work. Code Engine has a <b>free usage amount</b> that should let us deploy the chatbot for testing purposes. <a href="https://cloud.ibm.com/docs/codeengine" target="_blank">This</a> is the official CE documentation. <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli" target="_blank">This</a> is the documentation for specifc CE commands using the IBM Cloud CLI.</p>
+        
+        <h3 id="-necessary-components-"><strong>Necessary Components</strong></h3>
+        <p>To deploy the app successfully, please ensure that you have these components ready:</p>
+        <ul>
+        <li>Telegram Bot API key and Telegram account
+          <ul><li>The API key is required for connecting the web app to Telegram. You can get more information on how to create a new bot account with BotFather <a href="https://blog.devgenius.io/how-to-set-up-your-telegram-bot-using-botfather-fd1896d68c02" target="_blank"> here</a>.<br> The account is required to test the bot after the deployment. </li></ul>
+        </li>
+        
+        <li>IBM Cloud account (credit card required; <strong>no payment</strong> - <u>the services we will use are free!</u>)</li>
+        <ul>
+        <li>Create an instance for the <strong>free versions</strong> of the following services (you can select Dallas as the location):</li>
+          <li style="margin-left:2em"><a target="_blank" href="https://cloud.ibm.com/catalog/services/speech-to-text">Speech-to-Text</a></li>
+          <li style="margin-left:2em;"><a target="_blank" href="https://cloud.ibm.com/catalog/services/text-to-speech">Text-to-Speech</a></li>
+          <li style="margin-left:2em"><a target="_blank" href="https://cloud.ibm.com/catalog/services/watson-assistant">Watson Assistant</a> <font style="font-size:12px;"><i>(please see the section <a href="../watsonservices/index.html"> Watson Services</a>)</i></font></li>
+          <li style="margin-left:2em;"><a href="https://cloud.ibm.com/objectstorage/create" target="_blank">Object Storage</a></li>
+          <li style="margin-left:2em;"><a href="https://cloud.ibm.com/catalog/services/cloudant" target="_blank">Cloudant</a></li>
+          <li style="margin-left:2em;"><a href="https://cloud.ibm.com/codeengine/projects" target="_blank">Container Registry</a></li>
+          <li style="margin-left:2em;"><a href="https://cloud.ibm.com/codeengine/projects" target="_blank">Code Engine</a></li>
+          
+        </ul>
+        <li><a href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started">IBM Cloud CLI</a> downloaded and installed</li>
+        <li><a href="https://www.docker.com/products/docker-desktop/" target="_blank">Docker Desktop</a> (or Podman Desktop) downloaded and installed</li>
+        </ul>
+        <h3 id="-environment-set-up-"><strong>Environment Set-up</strong></h3>
+        <p>Cloning this repository should take care of the files and folders set-up. Locally, you need to create a virtual environment (venv), install the requirements, and set up a <code>.env</code> file in the folder <code>src/</code>.</p>
+        <p>This is how you can create a venv, activate, and install the requirements:</p>
+        <ul>
+          <i>In the project local folder in your computer</i>: 
+          <li>Creating the virtual environment:
+            <ul><li>Mac/Linux/Windows <code>$ python3 -m venv &ltname_of_virtualenv&gt </code></li></ul>
+          </li>
+          <!--<li>Activating the virtual environment:
+            <ul>
+              <li>Mac/Linux (bash/zsh) - <code>$ source &ltvenv&gt/bin/activate</code></li>
+              <li>Windows (cmd.exe) - <code>C:\&gt &ltvenv&gt\Scripts\activate.bat</code></li>
+              <li>Windows (PowerShell) - <code>PS C:\&gt &ltvenv&gt\Scripts\Activate.ps1</code></li>
+            </ul>
+          </li>-->
+          <li>Installing the requirements:
+            <ul>
+              <li><code>$ pip install -r requirements.txt </code></li>
+            </ul>
+          </li>
+        </ul>
+        <p>To create and set up the <code>.env</code> file, you can use <a href="https://code.visualstudio.com/" target="_blank">VS Code</a> or your favorite terminal text editor. We will need these environment variables to build the Docker Image and deploy the app:</p>
+        <ul>
+          <li>COS_API_KEY_ID <sup>1</sup></li>
+          <li>COS_BUCKET_LINK <sup>1</sup></li>
+          <li>COS_BUCKET <sup>1</sup></li>
+          <li>COS_ENDPOINT <sup>1</sup></li>
+          <li>COS_INSTANCE_CRN <sup>1</sup></li>
+          <li>IBM_CLOUDANT_APIKEY <sup>1</sup></li>
+          <li>IBM_CLOUDANT_DATABASE <sup>1</sup></li>
+          <li>IBM_CLOUDANT_URL <sup>1</sup></li>
+          <li>STT_API_KEY <sup>2</sup></li>
+          <li>STT_LANGUAGE <sup>2</sup></li>
+          <li>STT_MODEL <sup>2</sup></li>
+          <li>STT_SERVICE_URL <sup>2</sup></li>
+          <li>TELEGRAM_BOT_TOKEN <sup>3</sup></li>
+          <li>TELEGRAM_PORT <sup>3</sup></li>
+          <li>TELEGRAM_WEBHOOK_URL <sup>3</sup></li>
+          <li>TTS_API_KEY <sup>2</sup></li>
+          <li>TTS_DEFAULT_VOICE <sup>2</sup></li>
+          <li>TTS_SERVICE_URL <sup>2</sup></li>
+          <li>WA_API_KEY <sup>2</sup></li> 
+          <li>WA_DEFAULT_ERROR_MESSAGE <sup>2</sup></li> 
+          <li>WA_ID <sup>2</sup></li> 
+          <li>WA_SERVICE_URL <sup>2</sup></li> 
+           <br>
+          <sup>1</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/datastorage/"> Data Storage page</a><Br>
+          <sup>2</sup>Refer to <a href="https://ibm.github.io/customized-voice-text-bot-for-whatsapp-telegram/watsonservices/"> Watson Services page</a><br>
+          <sup>3</sup>The Bot Token is given by BotFather when creating a new bot (<a href="https://blog.devgenius.io/how-to-set-up-your-telegram-bot-using-botfather-fd1896d68c02" target="_blank">refer here</a>).<br>The TELEGRAM_PORT value is the port that the deployed app listen for incoming connections, by default is 8080.<br>The TELEGRAM_WEBHOOK_URL is your web application main address, with a backslash in the end. <br>
+          </ul>
+        
+        <p>This is how the <code>.env</code> file should look like:</p>
+        <img src="../src/images/envs_telegram.png"><br><br>
+        <h3 id="-deploying-the-app-"><strong>Deploying the App</strong></h3>       
+        <p>The following content will walk through deploying the app using the CLI. It is loosely based on this <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-deploy-app-private&locale=en">tutorial</a>. To facilitate the distribution of the application and it's deployment to Code Engine, it is <strong>strongly recommended</strong> to containerize the application source code together with all of the related configuration files, libraries, and dependencies required for it to run. <a href="https://www.ibm.com/topics/containerization">Access this IBM page</a> to find more information about containerization.</p>
+        
+        <p>The first thing to do when you want to generate a image of an application is to choose the tool that you will use to do it. There are many container runtime tools like Docker and Podman. In this tutorial we will going to use Docker.</p>
+        <h4>Docker Overview</h4>
+
+        <p><a href="https://docs.docker.com/get-started/overview/">Docker</a> is a platform for "developing, shipping, and running applications." (Docker documentation). Docker containers give the ability to package an application and share it with others, without needing too much work on setting up environments. Containers can also run on a variety of environments, making it suitable for quickly deploying the chatbot on the cloud.</p>
+        <h4 id="-building-the-docker-image-"><strong>Building the Docker Image and pushing it to IBM Cloud Container Registry</strong></h4>
+        <p></p>
+        <p>With the previous steps being concluded successfully, open the terminal in the project main folder and execute the following commands:</p>
+        <ul>
+          <li>Login into IBM Cloud<br>
+          <code>$ ibmcloud login</code></li>
+          <font style="font-size:12px;">That may fail. If it does, you can use <code>$ ibmcloud login --sso</code>. <br>Follow the steps, obtain the passcode, and login. If a region is requested, select us-south (Dallas).</font><br><br>
+
+          <li>Set the IBM Cloud resource group</li>
+          <code>$ ibmcloud target -g Default</code><br>
+          <font style="font-size: 12px;">This command set the resource group to <u>Default</u>. <br>To see all resource groups avaliable, use <code>ibmcloud resources</code></font><br><br>
+
+          <li>Login into IBM Cloud Container Registry (CR)<br><code>$ ibmcloud cr login</code></li>
+          <font style="font-size:12px;">If the Container Registry plugin is not installed, please run <code>ibmcloud plugin install cr</code>.<br><b>Keep the registry address.</b> If you selected us-south, the registry address is <u>us.icr.io</u>
+          </font><br><br>
+          
+          <li>Choose a name for your CR namespace and create that namespace.<br>
+            <code>$ ibmcloud cr namespace-add &lt;my-namespace&gt;</code></li>
+            <font style="font-size:12px;">Please be sure to choose a unique name for the namespace in the region.</font><br>
+            <br>
+
+            <li>Keep the <code>&lt;image-link&gt;</code>: <br><code>&lt;registry-address&gt;/&lt;my-namespace&gt;/&lt;my-repository&gt;:&lt;my-tag&gt;</code></li><br>
+
+          <li>Build the Docker Image<br><code>$ docker build --tag &lt;image-link&gt; .</code></li>
+          <font style="font-size:12px;">To avoid overwriting, the repository title should be unique in the namespace, as the tag.
+          </font><br><br>
+
+          <li>Push the Image<br><code>$ docker push &lt;image-link&gt;</code></li>
+          </ul>
+
+          <p>Done! Now you are ready to deploy the web application to Code Engine.</p>
+
+
+          <h4 id="-creating-the-app-"><strong>Creating the app</strong></h4>
+          <p>Once we logged on IBM Cloud CLI previously, these are the main steps to deploying the app to CE:</p>
+          <ul>
+
+            <li>Create a project on Code Engine to store the application</li>
+            <code>$ ibmcloud ce proj create -name &lt;proj-name&gt;</code><br>
+            <font style="font-size: 12px;">The name of the project must have 128 characters or less and must consist of alphanumeric characters, '-', ':', '_' or '.'</font><br><br>
+
+            <li>Create an IBM Cloud API Key using the command line interface and save as .txt </li>
+            <code>$ ibmcloud iam api-key-create &lt;api_key_name&gt; --file &lt;file_name_to_save.txt&gt;</code><br><br>
+
+            <li>Open the .txt file and copy the <code>apikey</code> value from the json.</li><br>
+
+            <li>Select the working project on Code Engine </li>
+            <code>$ ibmcloud ce proj select -name &lt;proj-name&gt;</code><br><br>
+
+            <li>Create the Registry access on Code Engine</li>
+            <code>$ ibmcloud ce registry create --name &lt;registry-access&gt; --server &lt;registry-address&gt; --username iamapikey --password &lt;paste apikey&gt;</code><br>
+            <font style="font-size: 12px;">This step enables Code Engine to access the private image that was stored at Container Registry.<br>The registry name must consist of lower case alphanumeric characters, '-' and must start and end with an alphanumeric character.</font><br><br>
+
+            <li>Create the application on Code Engine</li>
+            <code>$ ibmcloud ce app create --n &lt;app-name&gt;  --image &lt;image-link&gt; --registry-secret &lt;registry-access&gt;</code><br><br>
+
+            <li>Get the application link</li>
+            <code>$ ibmcloud ce app get -n &lt;app-name&gt; -output url</code>
+
+          </ul>
+          <p>Congratulations! You have deployed the application to cloud! <br>Ps: This process can be made by <a href="https://cloud.ibm.com/" target="_blank">IBM Cloud console</a> if you prefer.</p>
+            
+          <h3 id="-testing-the-app-"><strong>Configuring Twilio Sandbox and testing the bot</strong></h3>
+            
+           It is time to configure Twilio Sandbox and test the bot. For this, open up <a href="https://console.twilio.com/" target="_blank">Twilio console</a>. </p>
+          <img src="../src/images/twilio_console.jpg" alt="See ../src/images/twilio_console.jpg"><br><br>
+
+          <p>Then navigate to your WhatsApp Sandbox settings:</p>
+          <ol>
+            <li>Messaging</li>
+            <li>Settings</li>
+            <li>WhatsApp sandbox settings</li>
+          </ol>
+          <p>You should be able to see a screen just like this one:</p>
+          <img src="../src/images/whatsapp_sandbox.jpg" alt="See ../src/images/whatsapp_sandbox.jpg"><br><br>
+
+          <p>Then you should copy and paste your ngrok url in the box "WHEN A MESSAGE COMES IN". Append the path "/chatbot-message" to your url too - so the final url that goes in that box should be similar to <code>https://&lt;app-name&gt;.____.us-south.codeengine.appdomain.cloud/chatbot-message</code>. All other settings can be left as the default.</p>
+          <p>After this is done, you now should be able to interact with the bot on WhatsApp. Yeeey!</p>
+          <p>To interact with the bot, send the Sandbox code from an WhatsApp account to the Sandbox number, avaliable in the same page you paste the application URL. Then, start talking to the machine by texting or recording a "Hi" or "Hey". </p>
+          <p>Of course, there should also be a working Watson Assistant dialog skill attached to your Watson Assistant assistant (that correlates with <code>WATSON_ASSISTANT_ID</code>) in order for you to receive sensible responses from the app.</p>
+          <p>There are helpful pages on the Twilio console that can help you to identify errors. We recommend you to explore Twilio Console and learn more about the process and the interaction between user and bot.</p>
+
+          <p>You can also monitor bot activity through <strong>Cloudant database</strong> and access the media files sent and received by the bot in the <strong>Cloud Object Storage bucket</strong> you create.</p>
+      </section>
+      <footer>
+        <p style="font-size:12px;">Project maintainers: <br><a target="_blank" rel="noopener" href="https://github.com/adinanabf">Adinan Brito Filho</a> <br><a target="_blank" rel="noopener" href="https://github.com/marcelo-grave">Marcelo Grave</a> <br><a target="_blank" rel="noopener" href="https://github.com/cassiasamp">Cássia Sampaio</a></p></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="../src/javascripts/scale.fix.js"></script>
+  </body>
+</html>
