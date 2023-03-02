@@ -9,7 +9,7 @@ from db import (create_new_document, update_conversation_shift,
 # Setting Environment Variable
 load_dotenv() # This is used to enable loading environment variables from the
               # .env file
-DEFAULT_ERROR_MESSAGE = str(os.getenv('DEFAULT_ERROR_MESSAGE')).replace("_"," ")
+DEFAULT_ERROR_MESSAGE = str(os.getenv('WA_DEFAULT_ERROR_MESSAGE')).replace("_"," ")
 
 session_IDs = {}
 

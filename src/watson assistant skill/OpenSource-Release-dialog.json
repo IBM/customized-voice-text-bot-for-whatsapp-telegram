@@ -1,0 +1,2222 @@
+{
+  "intents": [
+    {
+      "intent": "ask_for_business_info",
+      "examples": [
+        {
+          "text": "Analyze the health of my company"
+        },
+        {
+          "text": "Analyze the situation of my company"
+        },
+        {
+          "text": "Calculate the health of my company"
+        },
+        {
+          "text": "Company health"
+        },
+        {
+          "text": "Do you calculate company health?"
+        },
+        {
+          "text": "HBI"
+        },
+        {
+          "text": "Health business index"
+        },
+        {
+          "text": "How is the health of my company"
+        },
+        {
+          "text": "How is the situation of my company"
+        },
+        {
+          "text": "i want a loan"
+        },
+        {
+          "text": "I want to calculate health"
+        },
+        {
+          "text": "I want to know if my company is doing well"
+        },
+        {
+          "text": "I want to know if my company is in good health"
+        },
+        {
+          "text": "I want to know the health"
+        },
+        {
+          "text": "I want to know the health of my company"
+        },
+        {
+          "text": "I would like to calculate my company's health index"
+        },
+        {
+          "text": "I would like to know the health of my business"
+        },
+        {
+          "text": "I would like to know the health of my company"
+        },
+        {
+          "text": "Let's calculate my company's health"
+        },
+        {
+          "text": "loan"
+        },
+        {
+          "text": "Tell me the health of my company"
+        },
+        {
+          "text": "Want to know the health"
+        },
+        {
+          "text": "What is the health of my business?"
+        }
+      ],
+      "description": "Intent to detect the user's desire to know the health of your company."
+    },
+    {
+      "intent": "ask_for_credit",
+      "examples": [
+        {
+          "text": "Hi I want credit"
+        },
+        {
+          "text": "Hi I want money"
+        },
+        {
+          "text": "How can I access credit"
+        },
+        {
+          "text": "How can I get a loan"
+        },
+        {
+          "text": "How can I get credit"
+        },
+        {
+          "text": "How can I obtain money"
+        },
+        {
+          "text": "How to access microcredit"
+        },
+        {
+          "text": "How to get money"
+        },
+        {
+          "text": "I need a loan"
+        },
+        {
+          "text": "I need credit"
+        },
+        {
+          "text": "I need microcredit"
+        },
+        {
+          "text": "Intructions for microcredit"
+        },
+        {
+          "text": "i want credit"
+        },
+        {
+          "text": "I want credit please"
+        },
+        {
+          "text": "I want microcredit"
+        },
+        {
+          "text": "I want some microcredit"
+        },
+        {
+          "text": "I would like credit"
+        },
+        {
+          "text": "Microcredit instructions"
+        },
+        {
+          "text": "Process of getting credit"
+        },
+        {
+          "text": "Protocol for getting microcredit"
+        },
+        {
+          "text": "Steps to get microcredit"
+        },
+        {
+          "text": "Where can I get microcredit"
+        },
+        {
+          "text": "Where is credit"
+        }
+      ],
+      "description": "The user wants to obtain credit."
+    },
+    {
+      "intent": "ask_for_help",
+      "examples": [
+        {
+          "text": "Can you explain"
+        },
+        {
+          "text": "Can you help me"
+        },
+        {
+          "text": "Can you tell me what that is"
+        },
+        {
+          "text": "Explain please"
+        },
+        {
+          "text": "Help please"
+        },
+        {
+          "text": "How can I access"
+        },
+        {
+          "text": "How do I do that"
+        },
+        {
+          "text": "How to access"
+        },
+        {
+          "text": "I don't know how to do that"
+        },
+        {
+          "text": "I don't know that"
+        },
+        {
+          "text": "I don't understand that"
+        },
+        {
+          "text": "Please explain"
+        },
+        {
+          "text": "What do you mean by"
+        },
+        {
+          "text": "What is"
+        },
+        {
+          "text": "What is credit"
+        },
+        {
+          "text": "What is it"
+        },
+        {
+          "text": "What is microcredit"
+        },
+        {
+          "text": "What is that"
+        },
+        {
+          "text": "Where can I"
+        },
+        {
+          "text": "Where can I find that"
+        },
+        {
+          "text": "Where is it"
+        },
+        {
+          "text": "Where is that"
+        },
+        {
+          "text": "Where to"
+        }
+      ],
+      "description": "Intent to detect user claims for help."
+    },
+    {
+      "intent": "ask_to_reset",
+      "examples": [
+        {
+          "text": "Can we start over this question?"
+        },
+        {
+          "text": "I entered something wrong"
+        },
+        {
+          "text": "I messed up"
+        },
+        {
+          "text": "Let's start over. It's not all correct"
+        },
+        {
+          "text": "No you got it wrong"
+        },
+        {
+          "text": "Wait"
+        },
+        {
+          "text": "Wait, I messed up"
+        }
+      ],
+      "description": "An intent to describe starting over a particular conversation flow"
+    },
+    {
+      "intent": "improve_enterprise",
+      "examples": [
+        {
+          "text": "Help me improve my business"
+        },
+        {
+          "text": "How can I have a healthier company?"
+        },
+        {
+          "text": "How can I improve this?"
+        },
+        {
+          "text": "How can i increase my health"
+        },
+        {
+          "text": "How can I increase the health of my business?"
+        },
+        {
+          "text": "How can I maintain my health score?"
+        },
+        {
+          "text": "improve HBI"
+        },
+        {
+          "text": "Improve health business index"
+        },
+        {
+          "text": "I want to have a healthier company"
+        },
+        {
+          "text": "I want to improve my HBI"
+        },
+        {
+          "text": "I want to improve my Health Business Index"
+        },
+        {
+          "text": "I want to improve my health score"
+        },
+        {
+          "text": "I want to improve the financial health of my company"
+        },
+        {
+          "text": "I want to progress in my business"
+        },
+        {
+          "text": "I would like to improve my business"
+        },
+        {
+          "text": "I would like to increase the health of my business"
+        }
+      ],
+      "description": "Entrepreneur wants to increase the health business index."
+    }
+  ],
+  "entities": [
+    {
+      "entity": "affirmation",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Yes",
+          "synonyms": [
+            "always",
+            "good",
+            "great",
+            "I agree",
+            "I concur",
+            "I'm sure",
+            "k",
+            "kk",
+            "likely",
+            "No argument here",
+            "No disagreements",
+            "ok",
+            "okay",
+            "probably",
+            "s",
+            "sounds good",
+            "sure",
+            "usually",
+            "y",
+            "ya",
+            "yah",
+            "yas",
+            "yea",
+            "yeah",
+            "yep",
+            "yup"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "annual_billing",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Annual billing",
+          "synonyms": [
+            "annual bill",
+            "annual billing amount",
+            "annual billing cash",
+            "annual billing money",
+            "annual billing number",
+            "annual billing statement",
+            "bill that is annual",
+            "year bill",
+            "yearly billing"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "business",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "business",
+          "synonyms": [
+            "business goal",
+            "business idea",
+            "business product",
+            "business service",
+            "my business",
+            "venture"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "business_types",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Beauty",
+          "synonyms": [
+            "barber shop",
+            "beards",
+            "beauty salon",
+            "body soap",
+            "bouffant",
+            "braid hair",
+            "brushes",
+            "cleansers",
+            "combs",
+            "create lotion",
+            "cut hair",
+            "do eyelashes",
+            "do feet",
+            "do nails",
+            "dreadlocks",
+            "dresses",
+            "goatee",
+            "hair",
+            "haircut",
+            "haircuts",
+            "hairdo",
+            "hairdos",
+            "hair oil",
+            "hairstyle",
+            "hairstyles",
+            "lotions",
+            "make soap",
+            "make up",
+            "manicure",
+            "moisturizers",
+            "mustaches",
+            "pedicure",
+            "perms",
+            "pigtails",
+            "sell body oil",
+            "sell deodorant",
+            "sell hair products",
+            "sell soap",
+            "shampooing",
+            "shave hair",
+            "shaving kits",
+            "undergarments",
+            "wigs"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Clothing",
+          "synonyms": [
+            "blouse",
+            "blouses",
+            "boots",
+            "ccoat",
+            "clothes",
+            "cloths",
+            "dress shirts",
+            "garments",
+            "hats",
+            "hoodies",
+            "jackets",
+            "jersey",
+            "leggings",
+            "neckties",
+            "overalls",
+            "overcoats",
+            "pants",
+            "pantyhose",
+            "robe",
+            "scarf",
+            "scarves",
+            "shirts",
+            "shoes",
+            "shorts",
+            "sneakers",
+            "socks",
+            "suspenders",
+            "sweater",
+            "sweaters",
+            "sweatpants",
+            "sweatshirts",
+            "tights",
+            "towels",
+            "trousers",
+            "t-shirt",
+            "tunics",
+            "undergarments",
+            "waistcoats",
+            "washcloth"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Crafts",
+          "synonyms": [
+            "basketry",
+            "beadwork",
+            "carpets",
+            "cloth",
+            "cloths",
+            "construct decorations",
+            "couch",
+            "craftwork",
+            "embroideries",
+            "embroidery",
+            "fabric",
+            "fabrics",
+            "firewood",
+            "furniture",
+            "garments",
+            "handcrafts",
+            "handicraft",
+            "handicrafts",
+            "handlooms",
+            "hardwood",
+            "huipils",
+            "make art",
+            "make chairs",
+            "make cloth",
+            "make doors",
+            "make dresses",
+            "make tables",
+            "make tools",
+            "metalwork",
+            "plywood",
+            "quilts",
+            "rugs",
+            "textiles",
+            "timber",
+            "weavings",
+            "windows",
+            "wood",
+            "woodcarving"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Education",
+          "synonyms": [
+            "bags",
+            "binder",
+            "books",
+            "bottles",
+            "cans",
+            "cartons",
+            "containers",
+            "crayons",
+            "embossing",
+            "eraser",
+            "erasers",
+            "folder",
+            "folders",
+            "ink",
+            "inks",
+            "napkins",
+            "paintbrushes",
+            "paper",
+            "pencil",
+            "pencils",
+            "pens",
+            "resealable",
+            "stencil",
+            "stencils",
+            "tins",
+            "toothpicks",
+            "towels",
+            "trays"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Food",
+          "synonyms": [
+            "breads",
+            "cakes",
+            "candy",
+            "coffee",
+            "condiments",
+            "confections",
+            "cookies",
+            "curries",
+            "dairy",
+            "delicacies ",
+            "desserts",
+            "dinners",
+            "dishes",
+            "doughnuts",
+            "drinks",
+            "dumplings",
+            "foods",
+            "fruit",
+            "fruits ",
+            "garnishes",
+            "groceries",
+            "juice",
+            "lunch",
+            "meals",
+            "meat",
+            "meats",
+            "milk",
+            "milkshakes",
+            "pancakes",
+            "pastries",
+            "pizza",
+            "puddings",
+            "salads",
+            "sauces",
+            "sausages",
+            "seasonings",
+            "soda ",
+            "soft drinks",
+            "soups",
+            "spices",
+            "stews",
+            "sweets",
+            "tea",
+            "toppings",
+            "vegetables",
+            "water"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Music",
+          "synonyms": [
+            "Bass",
+            "CD",
+            "Composer",
+            "Drums",
+            "DVD",
+            "Guitar",
+            "Headphones",
+            "Headset",
+            "Instruments",
+            "Keyboard",
+            "Microphones",
+            "Mixing console",
+            "Music Arranger",
+            "Music equipments",
+            "Music producer",
+            "Music Publicist",
+            "Music store",
+            "Music studio",
+            "Music Teacher",
+            "Piano",
+            "Recording Engineer",
+            "Records",
+            "Session musician",
+            "Singer",
+            "Songs",
+            "Speakers"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Sales",
+          "synonyms": [
+            "Cars",
+            "insurance",
+            "Parts"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Technology",
+          "synonyms": [
+            "Android",
+            "app",
+            "apps",
+            "bluetooth",
+            "cellphone",
+            "cellphones",
+            "chromebooks",
+            "chromecast",
+            "computer",
+            "computers",
+            "desktop",
+            "desktops",
+            "device",
+            "dongle",
+            "DVD player",
+            "earbuds",
+            "earphones",
+            "facetime",
+            "handhelds",
+            "handset",
+            "handsets",
+            "headphones",
+            "headset",
+            "headsets",
+            "imacs",
+            "ios",
+            "iPad",
+            "ipads",
+            "iPhone",
+            "iphones",
+            "ipod",
+            "ipods",
+            "Kindle tablet",
+            "laptop",
+            "laptops",
+            "macbooks",
+            "mobile phone",
+            "monitor",
+            "music player",
+            "netbook",
+            "netbooks",
+            "pcs",
+            "pdas",
+            "phone",
+            "phones",
+            "sim card",
+            "smart phone",
+            "smartphone",
+            "smartphones",
+            "tablet",
+            "television",
+            "thinkpad",
+            "touchpad",
+            "touchscreen",
+            "touchscreens",
+            "TV",
+            "tvos",
+            "ultrabooks",
+            "usb",
+            "zune"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "civil_works",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "civil works",
+          "synonyms": [
+            "civil works",
+            "works that are civil"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "CNAE",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "CNAE",
+          "patterns": [
+            "[0-9]{4}\\-?[0-9]{1}\\/?[0-9]{2}"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "CNPJ",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "CNPJ",
+          "patterns": [
+            "[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\/?[0-9]{4}\\-?[0-9]{2}"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "company_costs",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "company costs",
+          "synonyms": [
+            "company associated costs",
+            "company cos",
+            "company cost",
+            "company expenses",
+            "costs of company "
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "company's cost",
+          "synonyms": [
+            "companys cost",
+            "company's costs"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "condition",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Condition",
+          "synonyms": [
+            "Conditions",
+            "Criteria",
+            "Determination",
+            "Imposition",
+            "I need to do",
+            "Obligations",
+            "Premise",
+            "Requirement",
+            "Requirements"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "credit",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Credit",
+          "synonyms": [
+            "cred",
+            "credits"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Loan",
+          "synonyms": [
+            "loan deal",
+            "loan money",
+            "loans"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Microcredit",
+          "synonyms": [
+            "credit deal",
+            "micro",
+            "microcred",
+            "microcredits",
+            "money",
+            "small credit"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "credit_purpose",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Another one",
+          "synonyms": [
+            "Another purpose",
+            "None of them",
+            "None of these purposes"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Debts",
+          "synonyms": [
+            "Pay debts",
+            "Pay off debts"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Fixed capital",
+          "synonyms": [
+            "Maintenance of cash flow"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Working capital",
+          "synonyms": [
+            "Development",
+            "Expansion",
+            "Growing",
+            "Growth",
+            "Purchase of equipment",
+            "Refit",
+            "Reform",
+            "Renovate",
+            "Renovations",
+            "Stock purchase"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "fixed_costs",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "fixed cost",
+          "synonyms": [
+            "costs that are fixed",
+            "fixed costs"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "fixed costs",
+          "synonyms": [
+            "cost fixings",
+            "fixing cost"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "gratitude",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Thanks",
+          "synonyms": [
+            "appreciate",
+            "appreciate it",
+            "appreciation",
+            "grateful",
+            "gratitude",
+            "my appreciation",
+            "my thanks",
+            "thankful",
+            "thanks so much",
+            "thank you",
+            "thx",
+            "tks",
+            "ty"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "hesitation",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "doubt",
+          "synonyms": [
+            "do not know yet",
+            "Don't know",
+            "I am not sure",
+            "I am not too sure",
+            "I cannot answer you",
+            "I do not know",
+            "I don't know",
+            "i'm thinking",
+            "maybe",
+            "not sure",
+            "not too sure",
+            "perhaps"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "initiation",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Afternoon",
+          "synonyms": [
+            "good afternoon"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Evening",
+          "synonyms": [
+            "good evening"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Hello",
+          "synonyms": [
+            "ayo",
+            "hey",
+            "hi",
+            "hiya",
+            "hullo",
+            "sup",
+            "what's up",
+            "yo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Morning",
+          "synonyms": [
+            "good morning"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "machinery",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "machinery",
+          "synonyms": [
+            "building materials",
+            "building products",
+            "construction activity",
+            "construction equipment",
+            "construction tools",
+            "devices",
+            "insums",
+            "machines",
+            "materials",
+            "new equipment",
+            "new machinery",
+            "tools",
+            "used equipment",
+            "used machinery"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "monthly_invoice",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "monthly invoice",
+          "synonyms": [
+            "month income",
+            "monthly income",
+            "monthly invoice amount",
+            "monthly invoice number",
+            "monthly invoice statement",
+            "monthly invoicing",
+            "monthly money"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "negation",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "No",
+          "synonyms": [
+            "absolutely no",
+            "barely",
+            "definitely not",
+            "hardly",
+            "likely not",
+            "n",
+            "nah",
+            "nay",
+            "never",
+            "no",
+            "none",
+            "noo",
+            "nope",
+            "not really",
+            "probably not",
+            "rarely",
+            "usually not"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "request",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Request",
+          "synonyms": [
+            "Apply",
+            "Ask",
+            "Demand",
+            "Get",
+            "Obtain",
+            "Solicit"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sebrae",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Microcredit Course",
+          "synonyms": [
+            "credit class",
+            "credit course",
+            "credit lessons",
+            "credit training",
+            "microcredit class",
+            "microcredit information",
+            "microcredit lesson",
+            "microcredit sebrae class",
+            "sebrae course",
+            "sebrae credit class"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "SEBRAE",
+          "synonyms": [
+            "sebrae company",
+            "sebrae entity",
+            "SEBRAE group",
+            "sebrae nonprofit",
+            "sebrae organization ",
+            "sebrae people",
+            "sebrae place"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "supplies",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Equipment",
+          "synonyms": [
+            "machines",
+            "tools"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Materials",
+          "synonyms": [
+            "material"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-currency",
+      "values": []
+    },
+    {
+      "entity": "sys-number",
+      "values": []
+    },
+    {
+      "entity": "variable_costs",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "variable cost",
+          "synonyms": [
+            "costs that vary",
+            "variable costs"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "variable costs",
+          "synonyms": [
+            "costs with vary",
+            "variety costs",
+            "vary cost",
+            "varying costs"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "digress_in": "returns",
+      "dialog_node": "Anything else",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_1_1626964012348",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1637789077445",
+      "context": {
+        "business": "@business_types"
+      },
+      "conditions": "@business_types",
+      "event_name": "input",
+      "dialog_node": "handler_10_1637789077456"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_9_1637789975134",
+      "context": {
+        "credit_purpose": "@credit_purpose"
+      },
+      "conditions": "@credit_purpose",
+      "event_name": "input",
+      "dialog_node": "handler_10_1637789975134"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Business is the productive activity that your company carries out. Examples of business: \n- Retail\n- Food\n- Agriculture\n- Beauty\n- Transport (Reel, deliveries)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_2_1637789077445",
+      "next_step": {
+        "behavior": "reprompt"
+      },
+      "conditions": "#ask_for_help",
+      "event_name": "nomatch",
+      "dialog_node": "handler_1_1637871412475",
+      "previous_sibling": "handler_2_1637789077456"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What is the *segment* of your small business? Type:\n\n- Beauty;\n- Clothing;\n- Crafts;\n- Education;\n- Food;\n- Music;\n- Technology;\n- Other."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_2_1637789077445",
+      "context": {},
+      "event_name": "focus",
+      "dialog_node": "handler_2_1637789077456",
+      "previous_sibling": "handler_10_1637789077456"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nice! What is the purpose of microcredit? Type:\n\n- *Working capital* _(survival of the company in a short term)_;\n- *Fixed capital* _(for development, e.g. purchase of equipment, purchase of inventory, renovations)_;\n- *Payment of debts*."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_9_1637789975134",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1637789975134",
+      "previous_sibling": "handler_10_1637789975134"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Monthly billing is the sum of all amounts earned in the month."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "You can check your company's earnings for the past month in your notes and add them up, so you'll be able to know your company's gross sales in one month."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1626964012348",
+      "conditions": "#ask_for_help && @monthly_invoice",
+      "dialog_node": "node_10_1629818022912"
+    },
+    {
+      "type": "standard",
+      "title": "Obtaining informations",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I’ll ask you some questions about your business."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_1_1637787964251"
+      },
+      "conditions": "#ask_for_credit || #ask_for_business_info",
+      "digress_in": "returns",
+      "dialog_node": "node_10_1637786423737",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_3_1637785656968"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "CNPJ stands for National Register of Legal Entities. This document is the equivalent of the CPF (Individual Taxpayer Registration) for companies, that is: for legal entities."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1626964012348",
+      "conditions": "#ask_for_help && @CNPJ",
+      "dialog_node": "node_10_1637865153094",
+      "previous_sibling": "node_2_1628697272538"
+    },
+    {
+      "type": "folder",
+      "title": "FAQ",
+      "digress_in": "returns",
+      "dialog_node": "node_1_1626964012348",
+      "previous_sibling": "node_3_1672926622655"
+    },
+    {
+      "type": "standard",
+      "title": "Doubt about conditions",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "To apply for credit, you must have no credit restrictions."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Would you like to take a health assessment of your company?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1637785656968",
+      "conditions": "@condition && @credit",
+      "dialog_node": "node_1_1637785716903"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your company's health rating is an indication of how well your company is financially. It is necessary to know the health of the company to get credit.\nTo calculate health, write \"I want to know the health of my company\"."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1637785716903",
+      "conditions": "@hesitation",
+      "dialog_node": "node_1_1637786988944",
+      "previous_sibling": "node_2_1637786977231"
+    },
+    {
+      "type": "frame",
+      "title": "Collecting user information",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "OK! You told me the following information:\n\nYou are in the *$business* segment, \nYour credit purpose is $credit_purpose.\n\nCould you confirm me this? Type \"yes\" or \"no\"."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1637786423737",
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "true",
+      "dialog_node": "node_1_1637787964251"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Business is the productive activity that your company does. Examples of projects:\n- Retail\n- Foods\n- Farming\n- Beauty\n- Truck"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1626964012348",
+      "conditions": "#ask_for_help && @business",
+      "dialog_node": "node_2_1628697272538",
+      "previous_sibling": "node_9_1629817967439"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Credit is the \"ability to borrow money or access goods or services with the understanding that one will repay or return those resources at a later time.\" \nMicrocredit is  \"the lending of small amounts of money at low interest to new businesses.\""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1626964012348",
+      "conditions": "#ask_for_help && @credit",
+      "dialog_node": "node_2_1629817985341",
+      "previous_sibling": "node_10_1629818022912"
+    },
+    {
+      "type": "standard",
+      "parent": "node_1_1637785716903",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_6_1637787269111"
+      },
+      "conditions": "@negation",
+      "dialog_node": "node_2_1637786977231",
+      "previous_sibling": "node_5_1637786965421"
+    },
+    {
+      "type": "folder",
+      "title": "Initial doubts",
+      "digress_in": "returns",
+      "dialog_node": "node_3_1637785656968",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": []
+      },
+      "parent": "node_8_1637786125774",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_6_1637787269111"
+      },
+      "conditions": "@negation",
+      "dialog_node": "node_3_1637787118861",
+      "previous_sibling": "node_4_1637787116177"
+    },
+    {
+      "type": "standard",
+      "conditions": "@gratitude",
+      "dialog_node": "node_3_1672926622655",
+      "previous_sibling": "node_6_1637787269111"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Can you specify what exactly you did not understand? You can say any of the following: \"business\", \"annual billing\", \"fixed costs\", \"variable costs\", company costs\", \"microcredit\", or \"monthly invoicing\", \"microcredit course\", \"SEBRAE\", or \"SEBRAE course\"."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1626964012348",
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_6_1626964045033"
+      },
+      "conditions": "#ask_for_help",
+      "dialog_node": "node_4_1627393487130",
+      "previous_sibling": "node_9_1637868578703"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": []
+      },
+      "parent": "node_8_1637786125774",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_10_1637786423737"
+      },
+      "conditions": "@affirmation",
+      "dialog_node": "node_4_1637787116177",
+      "previous_sibling": "response_9_1639522608658"
+    },
+    {
+      "type": "standard",
+      "parent": "node_1_1637785716903",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_10_1637786423737"
+      },
+      "conditions": "@affirmation",
+      "dialog_node": "node_5_1637786965421"
+    },
+    {
+      "type": "standard",
+      "title": "Specific FAQ Terms",
+      "parent": "node_1_1626964012348",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@annual_billing || @company_costs || @fixed_costs || @monthly_invoice || @variable_costs || @business || @credit && #ask_for_help",
+      "dialog_node": "node_6_1626964045033",
+      "previous_sibling": "node_4_1627393487130"
+    },
+    {
+      "type": "standard",
+      "title": "Desire to improve the enterprise",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You can show your health score to a loan officer for advice."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_6_1637787269111"
+      },
+      "conditions": "#improve_enterprise",
+      "dialog_node": "node_6_1637787230076",
+      "previous_sibling": "node_10_1637786423737"
+    },
+    {
+      "type": "standard",
+      "title": "End of conversation",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Is there anything else I can help you with?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "node_6_1637787269111",
+      "previous_sibling": "node_6_1637787230076"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmed informations",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you! A loan officer will review your information and get back to you as soon as possible."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1637787964251",
+      "context": {},
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_6_1637787269111"
+      },
+      "conditions": "@affirmation",
+      "dialog_node": "node_6_1637788461114",
+      "previous_sibling": "node_7_1637890079617"
+    },
+    {
+      "type": "standard",
+      "title": "Wrong information",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok... Let's start again!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1637787964251",
+      "context": {
+        "business": null,
+        "credit_purpose": null
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_10_1637786423737"
+      },
+      "conditions": "@negation",
+      "dialog_node": "node_7_1637890079617"
+    },
+    {
+      "type": "standard",
+      "title": "Doubt in the credit application",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You can contact the unit that offers credit in your area and show your health business index."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Would you like to take a health assessment of your company?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1637785656968",
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "@request && @credit",
+      "dialog_node": "node_8_1637786125774",
+      "previous_sibling": "node_1_1637785716903"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your company's health rating is an indication of how well your company is financially. It is necessary to know the health of the company to get credit.\nTo calculate health, write \"I want to know the health of my company\"."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1637786125774",
+      "conditions": "@hesitation",
+      "dialog_node": "node_8_1637787123379",
+      "previous_sibling": "node_3_1637787118861"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Monthly costs are all your company's expenses, such as rent, inventory, raw materials, debt installments."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "You can check your company's expenses for the past month in your notes and add them up, so you'll be able to know your company's costs in a month."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1626964012348",
+      "conditions": "#ask_for_help && @company_costs",
+      "dialog_node": "node_9_1629817967439",
+      "previous_sibling": "node_2_1629817985341"
+    },
+    {
+      "type": "standard",
+      "title": "Goodbye",
+      "parent": "node_6_1637787269111",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@affirmation || @negation",
+      "dialog_node": "node_9_1637787299729"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "CNAE consists of a code composed of 7 digits that will identify the economic activity carried out by a business.\nThese are the most common CNAEs:\n- lalala\n- lululu\n- lelele\nYou can also consult your CNAE on this website."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1626964012348",
+      "conditions": "#ask_for_help && @CNAE",
+      "dialog_node": "node_9_1637868578703",
+      "previous_sibling": "node_10_1637865153094"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your business refers to what your business sells or provides. If you sell cakes, you could say that business is \"I sell food\". If you make pants, you could say \"I make clothes\""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://tts-audio-files.s3.us-south.cloud-object-storage.appdomain.cloud/english_What_is_company_business.mp3",
+            "response_type": "audio",
+            "channel_options": {
+              "voice_telephony": {
+                "loop": false
+              }
+            }
+          }
+        ]
+      },
+      "parent": "node_6_1626964045033",
+      "conditions": "@business",
+      "dialog_node": "response_1_1626965014070",
+      "previous_sibling": "response_3_1626964914467"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Go to the Federal Government website (https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei/declaracao-anual-de-faturamento) to make DASN-SIMEI. It is the obligation of the MEI to make this statement once a year."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1626964045033",
+      "conditions": "@annual_billing",
+      "dialog_node": "response_2_1626968190091",
+      "previous_sibling": "response_1_1626965014070"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Monthly invoice ..."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1627393487130",
+      "disabled": true,
+      "conditions": "@monthly_invoice",
+      "dialog_node": "response_2_1628697068384",
+      "previous_sibling": "response_9_1628697032367"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Variable costs are those that vary proportionally according..."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1626964045033",
+      "conditions": "@variable_costs",
+      "dialog_node": "response_3_1626964914467",
+      "previous_sibling": "response_9_1626964084423"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your monthly invoice is the price sum of the purchases made."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1626964045033",
+      "conditions": "@monthly_invoice",
+      "dialog_node": "response_4_1626968615960",
+      "previous_sibling": "response_5_1626968578225"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Credit is the \"ability to borrow money or access goods or services with the understanding that one will repay or return those resources at a later time.\" Microcredit is  \"the lending of small amounts of money at low interest to new businesses.\" A loan is amount of money that has been lent, with the understanding that it will be repaid."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1626964045033",
+      "conditions": "@credit",
+      "dialog_node": "response_4_1627489595268",
+      "previous_sibling": "response_4_1626968615960"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1637787299729",
+      "conditions": "@affirmation",
+      "dialog_node": "response_4_1637787380417",
+      "previous_sibling": "response_5_1637787369338"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thanks. With the data you provided it was possible to calculate your company health index."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1637788461114",
+      "context": {
+        "HBI": "<? (($monthly_billing.toDouble() / $monthly_cost.toDouble())*100).toInt() ?>"
+      },
+      "disabled": true,
+      "conditions": "true",
+      "dialog_node": "response_4_1638979076767"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your company costs is the sum of expenses like rent, stock, supplies, etc."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1626964045033",
+      "conditions": "@company_costs",
+      "dialog_node": "response_5_1626968578225",
+      "previous_sibling": "response_2_1626968190091"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for the contact! I hope I helped you."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1637787299729",
+      "context": {},
+      "conditions": "@negation",
+      "dialog_node": "response_5_1637787369338"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "SEBRAE is a non-profit in Brazil. Here is their website - https://www.sebrae.com.br/sites/PortalSebrae, and this is the course link..."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1626964045033",
+      "conditions": "@sebrae",
+      "dialog_node": "response_6_1629818798120",
+      "previous_sibling": "response_4_1627489595268"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "Fixed costs are those that do not suffer change. They are consistent."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_6_1626964045033",
+      "conditions": "@fixed_costs",
+      "dialog_node": "response_9_1626964084423"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Venture is ..."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1627393487130",
+      "disabled": true,
+      "conditions": "@venture",
+      "dialog_node": "response_9_1628697032367"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You can contact the unit that offers credit in your area and show your health business index."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Would you like to take a health assessment of your company?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1637786125774",
+      "disabled": true,
+      "dialog_node": "response_9_1639522608658"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1637787964251",
+      "variable": "$business",
+      "dialog_node": "slot_2_1637789077445",
+      "previous_sibling": "node_6_1637788461114"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1637787964251",
+      "variable": "$credit_purpose",
+      "dialog_node": "slot_9_1637789975134",
+      "previous_sibling": "slot_2_1637789077445"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello! My name is *Micro* and I'm a chatbot ready to assist you to increase the chances to get a loan. \n\nCan I help you? Please say “I want a loan”"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome || @initiation",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "$4"
+    },
+    {
+      "text": "5"
+    },
+    {
+      "text": "Hi"
+    },
+    {
+      "text": "maybe"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "text": "not sure"
+    },
+    {
+      "text": "Probably"
+    },
+    {
+      "text": "venture, fixed cost, variable cost, company's cost, monthly invoice, annual bill"
+    },
+    {
+      "text": "yes"
+    }
+  ],
+  "system_settings": {
+    "nlp": {
+      "model": "baseline"
+    },
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": false,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "OpenSource Release",
+  "language": "en",
+  "description": "Bot to help entrepreneurs obtain a loan."
+}
