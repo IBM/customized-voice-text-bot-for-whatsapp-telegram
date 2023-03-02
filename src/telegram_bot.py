@@ -9,12 +9,12 @@ from file_management import save_media_file
 from redirect_request import redirect_request
 
 # Load environment variables
-load_dotenv('./venv/master.env')
+load_dotenv("./venv/master.env")
 
 # Define environment variables
-PORT                 = os.getenv('TELEGRAM_PORT')
+PORT                 = os.getenv("TELEGRAM_PORT")
 TELEGRAM_BOT_TOKEN   = os.getenv("TELEGRAM_BOT_TOKEN")
-TELEGRAM_WEBHOOK_URL = os.getenv('TELEGRAM_WEBHOOK_URL') # var must finish with /
+TELEGRAM_WEBHOOK_URL = os.getenv("TELEGRAM_WEBHOOK_URL") # var must finish with /
 
 # Configuring Telegram Bot
 bot = telegram.Bot(token=TELEGRAM_BOT_TOKEN)
@@ -33,7 +33,7 @@ def answer_is_media(answer: str) -> bool:
     bool
         True if the answer is a media file, False otherwise.
     """
-    common_media_file_types = ['jpg', 'peg', 'png', 'mp3', 'wav', 'ogg', 'mp4', 'pus']
+    common_media_file_types = ["jpg", "peg", "png", "mp3", "wav", "ogg", "mp4", "pus"]
     if type(answer) is str:
         if answer[-3:] in common_media_file_types:
             return True
@@ -56,7 +56,7 @@ def is_photo(ext: str) -> bool:
     bool
         True if is an usual picture format, False otherwise.
     """
-    if ext[-3:] in ['jpg', 'peg', 'png']:
+    if ext[-3:] in ["jpg", "peg", "png"]:
         return True
     else:
         return False
@@ -75,7 +75,7 @@ def is_audio(ext: str) -> bool:
     bool
         True if is an usual audio format, False otherwise.
     """
-    if ext[-3:] in ['mp3', 'wav', 'ogg', 'mp4', 'pus']:
+    if ext[-3:] in ["mp3", "wav", "ogg", "mp4", "pus"]:
         return True
     else:
         return False
@@ -95,10 +95,10 @@ def change_text_formatting(sentence: str) -> str:
         The text answer in the Telegram standart.
     """
     formatting_replacements = [
-        ('[', '\['), (']', '\]'), ('(', '\('), (')', '\)'), ('~', '\~'), \
-        ('`', '\`'), ('>', '\>'), ('#', '\#'), ('+', '\+'), ('-', '\-'), \
-        ('=', '\='), ('|', '\|'), ('{', '\{'), ('}', '\}'), ('.', '\.'), \
-        ('!', '\!')
+        ("[", "\["), ("]", "\]"), ("(", "\("), (")", "\)"), ("~", "\~"), \
+        ("`", "\`"), (">", "\>"), ("#", "\#"), ("+", "\+"), ("-", "\-"), \
+        ("=", "\="), ("|", "\|"), ("{", "\{"), ("}", "\}"), (".", "\."), \
+        ("!", "\!")
         ]
     for char, replacement in formatting_replacements:
         if char in sentence:
@@ -111,7 +111,7 @@ def send_media(user_ID, media):
     if is_photo(media):
         bot.send_photo(user_ID, media)
     elif is_audio(media):
-        bot.send_audio(user_ID, media, caption='', title='')
+        bot.send_audio(user_ID, media, caption="", title="")
     else:
         bot.send_message(user_ID, media)
 
@@ -162,7 +162,7 @@ def start_command(update: Updater, context: CallbackContext):
     non_supported_file = False
     message_is_audio = False
 
-    message = 'break'
+    message = "break"
     assistant_answer = redirect_request(
         message, encrypted_user_ID, message_is_audio, 
         timestamp, non_supported_file)
@@ -181,7 +181,7 @@ def help_command(update: Updater, context: CallbackContext):
     context: class 'telegram.ext.callbackcontext.CallbackContext''
         A class for callback
     """
-    update.message.reply_text('How can I help you? Please type or say your needs.')
+    update.message.reply_text("How can I help you? Please type or say your needs.")
 
 
 def handle_message(update: Updater, context: CallbackContext):
@@ -227,8 +227,8 @@ def handle_photo(update: Updater, context: CallbackContext):
     user_ID = str(update.message.chat_id)
     encrypted_user_ID = hashlib.sha256(user_ID.encode()).hexdigest()
     timestamp = datetime.now().utcnow().strftime("%d-%m-%Y_%H:%M:%S:%f_UTC")
-    file_type = 'jpg'
-    url = update.message.photo[-1].get_file()['file_path']
+    file_type = "jpg"
+    url = update.message.photo[-1].get_file()["file_path"]
     non_supported_file = True
     message_is_audio = False
 
@@ -257,7 +257,7 @@ def handle_voice(update: Updater, context: CallbackContext):
     non_supported_file = False
     message_is_audio = True
 
-    voice_link = update.message.effective_attachment.get_file()['file_path']
+    voice_link = update.message.effective_attachment.get_file()["file_path"]
     audio_link, message_recognized = process_audio_stt(
         voice_link, encrypted_user_ID, timestamp)
     message = [audio_link, message_recognized]
@@ -301,12 +301,12 @@ def main():
     # Default port is 80
     updater.start_webhook(
         listen="0.0.0.0",
-        port=int(os.environ.get('PORT', PORT)),
+        port=int(os.environ.get("PORT", PORT)),
         url_path=TELEGRAM_BOT_TOKEN,
-        key='private.key',
+        key="private.key",
         webhook_url=TELEGRAM_WEBHOOK_URL + TELEGRAM_BOT_TOKEN
         )
     updater.idle()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
