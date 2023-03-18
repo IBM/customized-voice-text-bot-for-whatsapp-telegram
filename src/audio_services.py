@@ -120,7 +120,8 @@ def speech_to_text_recognize(voice: bytes) -> str:
         text_from_speech = speech_to_text.recognize(
             audio        = voice,
             content_type = 'audio/ogg',
-            model        = STT_MODEL
+            model        = STT_MODEL,
+            low_latency  = True # Ensure that your model is compatible with Low Latency
         ).get_result()
         if len(text_from_speech['results']) > 0:
             transcript = str(
