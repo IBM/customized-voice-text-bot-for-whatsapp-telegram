@@ -1,4 +1,5 @@
-import os, time
+import os
+from datetime import datetime
 from dotenv import load_dotenv
 from ibmcloudant.cloudant_v1 import CloudantV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
@@ -108,7 +109,7 @@ def create_new_document(ID: str, session_ID: str):
             "conversation": [
                 {
                     "session_ID": session_ID,
-                    "timestamp": str(time.time()),
+                    "timestamp": datetime.now().utcnow().strftime("%d-%m-%Y_%H:%M:%S:%f"),
                     "conversation": []
                 }
             ]
